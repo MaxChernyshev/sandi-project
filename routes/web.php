@@ -5,9 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MainController as AdminMain;
 use App\Http\Controllers\Front\MainController as FrontMain;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Middleware\AdminPanelMiddleware;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -21,7 +19,9 @@ Route::middleware('auth')->group(function () {
 
 
 // ADMIN PANEL
+
 Route::name('admin.')
+    ->middleware(AdminPanelMiddleware::class)
     ->prefix('admin')
     ->group(function () {
         Route::get('/', [AdminMain::class, 'index'])->name('index');
