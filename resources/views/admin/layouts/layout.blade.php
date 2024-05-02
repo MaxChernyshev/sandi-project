@@ -27,4 +27,4 @@
     </div>
 </div>
 <!-- ===== Page Wrapper End ===== -->
-</body>
+@include('admin.layouts.footer')

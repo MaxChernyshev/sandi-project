@@ -44,8 +44,8 @@
         </span>
             </button>
             <!-- Hamburger Toggle BTN -->
-            <a class="block flex-shrink-0 lg:hidden" href="index.html">
-                <img src="./images/logo/logo-icon.svg" alt="Logo"/>
+            <a class="block flex-shrink-0 lg:hidden" href="{{ route('admin.index') }}">
+                <img src="{{ Vite::asset('resources/images/admin/sandy_logo.png') }}" alt="Sandy's logo"/>
             </a>
         </div>
         <div class="hidden sm:block">

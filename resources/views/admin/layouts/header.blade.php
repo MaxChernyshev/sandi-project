@@ -16,8 +16,8 @@
                 </span>
             </button>
             <!-- Hamburger Toggle BTN -->
-            <a class="block flex-shrink-0 lg:hidden" href="index.html">
-                <img src="{{ Vite::asset('resources/images/admin/logo/logo.svg') }}" alt="Logo"/>
+            <a class="block flex-shrink-0 lg:hidden" href="{{ route('admin.index') }}"  style="max-width: 25%" class="mx-auto">
+                <img src="{{ Vite::asset('resources/images/admin/sandy_logo.png') }}" alt="Sandy's Logo"/>
             </a>
         </div>
         <div class="hidden sm:block">
@@ -89,11 +89,11 @@
                    @click.prevent="dropdownOpen = ! dropdownOpen">
                       <span class="hidden text-right lg:block">
                         <span class="block text-sm font-medium text-black dark:text-white">
-                            {{ auth()->user()->name ?? 'User name' }}
+                            Hello {{ auth()->user()->name ?? 'User name' }}
                         </span>
                       </span>
                     <span class="h-12 w-12 rounded-full">
-            <img src="{{ Vite::asset('resources/images/admin/user/user-01.png') }}" alt="User"/>
+{{--            <img src="{{ Vite::asset('resources/images/admin/user/user-01.png') }}" alt="User"/>--}}
           </span>
 
                     <svg
