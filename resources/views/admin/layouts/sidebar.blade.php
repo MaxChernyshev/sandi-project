@@ -4,8 +4,8 @@
     @click.outside="sidebarToggle = false">
     <!-- SIDEBAR HEADER -->
     <div class="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
-        <a href="index.html">
-            <img src="{{ Vite::asset('resources/images/admin/logo/logo.svg') }}" alt="assa"/>
+        <a href="{{ route('admin.index') }}">
+            <img src="{{ Vite::asset('resources/images/admin/sandy_logo.png') }}" alt="Sandy's logo" style="max-width: 50%" class="mx-auto"/>
         </a>
         <button
             class="block lg:hidden"
