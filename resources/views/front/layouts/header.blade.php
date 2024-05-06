@@ -1,53 +1,77 @@
-<body
-    x-data="{ page: 'ecommerce', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
-    x-init=" darkMode = JSON.parse(localStorage.getItem('darkMode')); $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
-    :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}">
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="bg-gray-500 text-black/50 dark:bg-black dark:text-white/50">
-    <div class="relative flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
-        <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-            <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sandy's Ukrainian Kitchen</title>
+    @vite([
+        'resources/css/front/app.css',
+        'resources/js/front/app.js',
+        ])
+</head>
+<body>
 
-                @if (Route::has('login'))
-                    <nav class="-mx-3 flex flex-1 justify-end">
-                        @auth
-                            <a href="{{ url('/dashboard') }}"
-                               class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                                Dashboard
-                            </a>
-                        @else
-                            <a href="{{ route('login') }}"
-                               class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                                Log in
-                            </a>
+<!-- Hero Section -->
+<div class="container max-w-full min-h-12 hidden md:flex vyshyvanka-string"></div>
 
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}"
-                                   class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                                    Register
-                                </a>
-                            @endif
-                        @endauth
-                    </nav>
-                @endif
-            </header>
-        </div>
-    </div>
-</div>
-
-
-<div class="bg-gray-500 text-black/50 dark:bg-black dark:text-white/50">
-    <div class="relative flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
-        <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-            @if(Auth::user())
-                <div>
-                    {{ auth()->user()->role->role }}
-                    {{ Auth::user()->role->role }}
+<section id="hero" class="bg-red">
+    <!-- Hero Container -->
+    <div class="container max-w-4xl mx-auto px-6 py-4">
+        <!-- Menu/Logo Container -->
+        <nav class="flex items-center justify-between text-white">
+            <!-- Logo -->
+            <a href="{{ route('front.index') }}">
+            <img src="{{ Vite::asset('resources/images/front/sandy_logo.png') }}" alt="Sandy's Logo" class="h-20">
+            </a>
+            <!-- Menu -->
+            <div class="hidden h-10 font-mySans md:flex md:space-x-8 text-2xl">
+                <div class="group">
+                    <a href="#">Kitchen</a>
+                    <div class="mx-2 group-hover:border-b group-hover:border-blue-50">
+                    </div>
                 </div>
-            @else
-                NO USER
-            @endif
-
+                <div class="group">
+                    <a href="#">Store</a>
+                    <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                </div>
+                <div class="group">
+                    <a href="#">Blog</a>
+                    <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                </div>
+                <div class="group">
+                    <a href="#">Our History</a>
+                    <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                </div>
+                <div class="group">
+                    <a href="#">Contact</a>
+                    <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                </div>
+            </div>
+            <!-- Hamburger Button -->
+            <div class="md:hidden">
+                <button
+                    id="menu-btn"
+                    type="button"
+                    class="z-40 block hamburger md:hidden focus:outline-none">
+                    <span class="hamburger-top"></span>
+                    <span class="hamburger-middle"></span>
+                    <span class="hamburger-bottom"></span>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="menu"
+             class="absolute top-0 bottom-0 left-0 hidden flex-col self-end w-full min-h-screen py-1 pt-40 pl-12 space-y-3 text-lg text-white uppercase bg-black">
+            <a href="#" class="hover:text-pink-500">Kitchen</a>
+            <a href="#" class="hover:text-pink-500">Store</a>
+            <a href="#" class="hover:text-pink-500">Blog</a>
+            <a href="#" class="hover:text-pink-500">About</a>
+            <a href="#" class="hover:text-pink-500">Contact</a>
         </div>
     </div>
-</div>
+</section>
+<div class="container max-w-full min-h-12 hidden md:flex vyshyvanka-string"></div>
+
+
