@@ -10,6 +10,12 @@ module.exports = {
         './resources/js/*.{js}',
         './resources/js/admin/*.{js}',
         './resources/js/admin/components/*.{js}',
+
+
+        './resources/views/front/*.{html,php}',
+        './resources/css/front/*.css',
+        './resources/js/*.{js}',
+        './resources/js/front/*.{js}',
     ],
     darkMode: 'class',
     theme: {
