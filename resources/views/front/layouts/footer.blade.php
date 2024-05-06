@@ -1,8 +1,9 @@
-<footer class="bg-black/75 text-white py-8">
+<footer class="bg-black text-white py-8">
     <div class="container max-w-full min-h-12 hidden md:flex vyshyvanka-string"></div>
+
     <div class="container max-w-4xl mx-auto px-6 py-12">
-        <div class="flex flex-wrap -mx-4">
-            <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-4 sm:mb-0">
+        <div class="flex">
+            <div class="w-full sm:w-1/2 md:w-1/4 lg:1/4 xl:1/4 mb-4 sm:mb-0">
                 <ul>
                     <li class="mb-2"></li>
                     <li class="mb-2">Menu Kitchen</li>
@@ -10,7 +11,7 @@
                     <li class="mb-2">Recipes</li>
                 </ul>
             </div>
-            <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-4 sm:mb-0">
+            <div class="w-full sm:w-1/2 md:w-1/4 lg:1/4 xl:1/4 mb-4 sm:mb-0">
                 <ul>
                     <li class="mb-2">Link 1</li>
                     <li class="mb-2">Link 2</li>
@@ -18,7 +19,7 @@
                     <li class="mb-2">Link 4</li>
                 </ul>
             </div>
-            <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-4 sm:mb-0">
+            <div class="w-full sm:w-1/2 md:w-1/4 lg:1/4 xl:1/4 mb-4 sm:mb-0">
                 <ul>
                     <li class="mb-2">Link 1</li>
                     <li class="mb-2">Link 2</li>
@@ -26,7 +27,7 @@
                     <li class="mb-2">Link 4</li>
                 </ul>
             </div>
-            <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-4 sm:mb-0">
+            <div class="w-full sm:w-1/2 md:w-1/4 lg:1/4 xl:1/4 mb-4 sm:mb-0">
                 <ul>
                     <li class="mb-2">
                         <a href="#">
@@ -52,9 +53,8 @@
             </div>
         </div>
     </div>
+
     <div class="container max-w-full min-h-12 hidden md:flex vyshyvanka-string"></div>
 </footer>
 
-</body>
 
-</html>
