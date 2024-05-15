@@ -16,7 +16,7 @@
 <!-- Hero Section -->
 <div class="container max-w-full min-h-12 hidden md:flex vyshyvanka-string"></div>
 
-<section id="hero" class="bg-red">
+<section id="hero" class="bg-fred">
     <!-- Hero Container -->
     <div class="container max-w-4xl mx-auto px-6 py-4">
         <!-- Menu/Logo Container -->

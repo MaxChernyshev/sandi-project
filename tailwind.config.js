@@ -1,21 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 
 const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
 module.exports = {
     content: [
         './resources/views/admin/*.{html,php}',
         './resources/views/admin/partials/*.{html,php}',
         './resources/css/admin/*.css',
-        './resources/js/*.{js}',
-        './resources/js/admin/*.{js}',
-        './resources/js/admin/components/*.{js}',
+        './resources/js/*.js',
+        './resources/js/admin/*.js',
+        './resources/js/admin/components/*.js',
 
 
         './resources/views/front/*.{html,php}',
         './resources/css/front/*.css',
-        './resources/js/*.{js}',
-        './resources/js/front/*.{js}',
+        './resources/js/*.js',
+        './resources/js/front/*.js',
     ],
     darkMode: 'class',
     theme: {
@@ -27,6 +28,11 @@ module.exports = {
             xsm: '425px',
             '3xl': '2000px',
             ...defaultTheme.screens,
+        },
+        colors: {
+            transparent: "transparent",
+            current: "currentColor",
+            fred: "#e80808",
         },
         extend: {
             colors: {
