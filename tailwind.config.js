@@ -3,6 +3,8 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
+
+
 module.exports = {
     content: [
         './resources/views/admin/*.{html,php}',
@@ -12,8 +14,8 @@ module.exports = {
         './resources/js/admin/*.js',
         './resources/js/admin/components/*.js',
 
-
         './resources/views/front/*.{html,php}',
+        './resources/views/front/**/*.{html,php}',
         './resources/css/front/*.css',
         './resources/js/*.js',
         './resources/js/front/*.js',
@@ -22,6 +24,7 @@ module.exports = {
     theme: {
         fontFamily: {
             satoshi: ['Satoshi', 'sans-serif'],
+            lora: ['Lora', 'sans-serif'],
         },
         screens: {
             '2xsm': '375px',
@@ -29,11 +32,11 @@ module.exports = {
             '3xl': '2000px',
             ...defaultTheme.screens,
         },
-        colors: {
-            transparent: "transparent",
-            current: "currentColor",
-            fred: "#e80808",
-        },
+        // colors: {
+        //     transparent: "transparent",
+        //     current: "currentColor",
+        //     fred: "#e80808",
+        // },
         extend: {
             colors: {
                 current: "currentColor",
@@ -41,6 +44,7 @@ module.exports = {
                 white: "#FFFFFF",
                 black: "#1C2434",
                 red: "#FB5454",
+                frontred: "#BF1E2D",
                 "black-2": "#010101",
                 body: "#64748B",
                 bodydark: "#AEB7C0",
