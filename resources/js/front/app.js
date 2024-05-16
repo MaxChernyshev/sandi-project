@@ -4,6 +4,10 @@ import '@fortawesome/fontawesome-free/scss/brands.scss';
 import '@fortawesome/fontawesome-free/scss/regular.scss';
 import '@fortawesome/fontawesome-free/scss/solid.scss';
 
+// import.meta.glob(['../images/front/**']);
+
+// import imageUrl from '../resources/images/front/**';
+
 const btn = document.getElementById('menu-btn')
 const menu = document.getElementById('menu')
 

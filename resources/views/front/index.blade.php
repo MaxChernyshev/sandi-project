@@ -11,7 +11,7 @@
 
             <!-- Text Container -->
             <div class="top-48 pr-0 bg-white md:absolute md:right-0 md:py-20 md:pl-20">
-                <h2 class="max-w-lg mt-10 mb-6 font-mySans text-8xl text-center text-red uppercase md:text-5xl md:mt-0 md:text-left">
+                <h2 class="max-w-lg mt-10 mb-6 font-lora text-8xl text-center text-frontred uppercase md:text-5xl md:mt-0 md:text-left">
                     Sandy's Ukrainian Kitchen
                 </h2>
 
