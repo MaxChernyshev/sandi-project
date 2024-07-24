@@ -12,6 +12,7 @@ class MainController extends Controller
      */
     public function index()
     {
+//        dd(1221);
         return view('front.index');
     }
 
