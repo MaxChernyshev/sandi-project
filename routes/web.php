@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MainController as AdminMain;
 use App\Http\Controllers\Front\MainController as FrontMain;
+use App\Http\Controllers\Admin\CategoryController;
 
 use App\Http\Middleware\AdminPanelMiddleware;
 
@@ -24,7 +25,21 @@ Route::name('admin.')
     ->middleware(AdminPanelMiddleware::class)
     ->prefix('admin')
     ->group(function () {
-        Route::get('/', [AdminMain::class, 'index'])->name('index');
+
+
+        Route::prefix('main')
+            ->name('main.')
+            ->group(function () {
+                Route::get('/', [AdminMain::class, 'index'])->name('index');
+            });
+
+
+        Route::prefix('categories')
+            ->name('categories.')
+            ->group(function () {
+                Route::get('/', [CategoryController::class, 'index'])->name('index');
+            });
+
     });
 
 // END ADMIN PANEL
