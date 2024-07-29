@@ -1,68 +1,50 @@
 @extends('admin.layouts.layout')
 
 @section('content')
-    <!-- ===== Main Content Start ===== -->
+
     <div class="mx-4 p-4">
         <div class="max-w-full overflow-x-auto">
             <div class="min-w-[1170px]">
-                <div class="rounded-sm bg-white dark:bg-boxdark">
-                    <div class="flex justify-start gap-5 xl:gap-20">
-                    {{--        @dump($category->id);--}}
-                    {{--        @dump($category->name);--}}
+                <div class="my-4 p-4 rounded-lg bg-white border-1">
+                    <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+                        <div class="flex flex-col gap-5.5 p-6.5">
+                            <div>
+                                <label class="mb-3 block text-sm font-medium text-black dark:text-white">
+                                    Category Name
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="Category Name"
+                                    class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"/>
+                            </div>
+                        </div>
 
-                    <p>
-                        UPDATE BLADE
-                    </p>
+                        <div class="flex flex-col gap-5.5 p-6.5">
+                            <div>
+                                <label class="mb-3 block text-sm font-medium text-black dark:text-white">
+                                    Category description
+                                </label>
+                                <textarea
+                                    rows="6"
+                                    placeholder="Category description"
+                                    class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary">
+                                </textarea>
+                            </div>
+                        </div>
 
-                        {{-- TODO Button BACK --}}
+                        <div class="flex flex-col gap-5.5 p-6.5">
+                            <div>
+                                <label class="mb-3 block text-sm font-medium text-black dark:text-white">
+                                    Category image
+                                </label>
+                                <input type="file"
+                                       class="w-full rounded-md border border-stroke p-3 outline-none transition file:mr-4 file:rounded file:border-[0.5px] file:border-stroke file:bg-[#EEEEEE] file:px-2.5 file:py-1 file:text-sm file:font-normal focus:border-primary file:focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:file:border-strokedark dark:file:bg-white/30 dark:file:text-white"/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-    {{--        <div class="max-w-full overflow-x-auto">--}}
-    {{--            <div class="min-w-[1170px]">--}}
-    {{--                <!-- table header start -->--}}
-    {{--                <div class="grid grid-cols-2 rounded-t-[10px] bg-boxdark px-5 py-4 lg:px-7.5 2xl:px-11">--}}
-    {{--                    <div class="w-full px-4 py-2 text-sm items-center">--}}
-    {{--                        <h5 class="font-medium text-white">Name</h5>--}}
-    {{--                    </div>--}}
-
-    {{--                    <div class="w-full px-4 py-2 text-sm items-center justify-end">--}}
-    {{--                        <h5 class="text-right font-medium text-white">Actions</h5>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--                <!-- table header end -->--}}
-
-    {{--                <!-- table body start -->--}}
-    {{--                @foreach($categories as $category)--}}
-    {{--                    <div class="bg-white dark:bg-boxdark">--}}
-    {{--                        <!-- table row item -->--}}
-    {{--                        <div class="grid grid-cols-2 border-t border-[#EEEEEE] px-5 py-4 dark:border-strokedark lg:px-7.5 2xl:px-11">--}}
-    {{--                            <div class="flex flex-row w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">--}}
-    {{--                                <p class="text-[#637381] dark:text-bodydark">{{ $category }}</p>--}}
-    {{--                            </div>--}}
-
-    {{--                            <div class="flex flex-row justify-end">--}}
-    {{--                                <a class="flex items-center justify-center w-12 px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">--}}
-    {{--                                    <i class="fa fa-edit"></i>--}}
-    {{--                                </a>--}}
-    {{--                                <a class="flex items-center justify-center w-12 px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">--}}
-    {{--                                    <i class="fa fa-trash-can"></i>--}}
-    {{--                                </a>--}}
-    {{--                            </div>--}}
-
-    {{--                        </div>--}}
-    {{--                    </div>--}}
-    {{--                @endforeach--}}
-    {{--                <!-- table body end -->--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
-    </div>
-
-
-
-    <!-- ===== Main Content End ===== -->
 
 @endsection
