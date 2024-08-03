@@ -13,8 +13,17 @@ class Category extends Model
     protected $fillable = [
         'name',
         'description',
-        'image_type',
     ];
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 
 
 }

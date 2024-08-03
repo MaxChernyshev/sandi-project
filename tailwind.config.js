@@ -4,7 +4,6 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 
-
 module.exports = {
     content: [
         './resources/views/admin/*.{html,php}',
@@ -19,6 +18,8 @@ module.exports = {
         './resources/css/front/*.css',
         './resources/js/*.js',
         './resources/js/front/*.js',
+
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php'
     ],
     darkMode: 'class',
     theme: {
