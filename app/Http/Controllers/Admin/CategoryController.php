@@ -20,18 +20,17 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index() : View
     {
-        $categories = Category::with('image')->paginate(2);
-//        dd($categories);
-        return view('admin.category.index', compact('categories'));
+        $categories = Category::with('image')->paginate(10);
 
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create() : View
     {
         return view('admin.category.create');
     }
@@ -39,12 +38,11 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CategoryRequest $request)
+    public function store(CategoryRequest $request) : RedirectResponse
     {
-        $tableName = (new Category())->getTable(); //get table name in DB
+        $tableName = (new Category())->getTable();
 
         $imageService = new UploadImageService();
-//        dd($imageService);
 
         $validated = $request->all();
 
@@ -52,26 +50,12 @@ class CategoryController extends Controller
 
         $image = $imageService->uploadImage($request->image, $tableName);
 
-//        dd($category->id);
-
         $category->images()->create([
             'category_id' => $category->id,
             'image_path' => $image
         ]);
 
-
-//        dd($image);
-//        Category::create($validated);
-
         return redirect()->route('admin.categories.index')->with('success', 'Category added');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**
@@ -89,9 +73,6 @@ class CategoryController extends Controller
     {
 
         $validated = $request->all();
-        if ($validated) {
-            Session::put('assa', 'jhhjhj');
-        }
 
 
 //        dd($validated);
@@ -106,8 +87,8 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id) : RedirectResponse
     {
-        //
+        dd(1221);
     }
 }

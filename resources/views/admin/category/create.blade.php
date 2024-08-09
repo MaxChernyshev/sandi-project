@@ -29,12 +29,15 @@
                                         Category Name
                                     </label>
                                     <input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        value=""
-                                        placeholder="Category Name"
-                                        class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"/>
+                                            type="text"
+                                            id="name"
+                                            name="name"
+                                            value="{{ old('name') }}"
+                                            placeholder="Category Name"
+                                            class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"/>
+                                    @error('name')
+                                    <div class="error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -44,14 +47,16 @@
                                         Category description
                                     </label>
                                     <textarea
-
-                                        id="description"
-                                        name="description"
-                                        value=""
-                                        rows="6"
-                                        placeholder="Category description"
-                                        class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary">
+                                            id="description"
+                                            name="description"
+                                            rows="6"
+                                            value="{{ old('description') }}"
+                                            placeholder="Category description"
+                                            class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary">
                                     </textarea>
+                                    @error('description')
+                                    <div class="error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -64,6 +69,9 @@
                                            id="image"
                                            name="image"
                                            class="w-full rounded-md border border-stroke p-3 outline-none transition file:mr-4 file:rounded file:border-[0.5px] file:border-stroke file:bg-[#EEEEEE] file:px-2.5 file:py-1 file:text-sm file:font-normal focus:border-primary file:focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:file:border-strokedark dark:file:bg-white/30 dark:file:text-white"/>
+                                    @error('image')
+                                    <div class="error">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="my-4 p-4 rounded-lg bg-white border-1 dark:bg-boxdark">
