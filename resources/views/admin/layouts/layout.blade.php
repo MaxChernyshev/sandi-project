@@ -23,6 +23,8 @@
     @include('admin.layouts.sidebar')
     <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
         @include('admin.layouts.header')
+{{--        @include('admin.layouts.messages')--}}
+        @include('admin.layouts.errors')
         @yield('content')
     </div>
 </div>
