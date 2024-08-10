@@ -20,7 +20,7 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index() : View
+    public function index(): View
     {
         $categories = Category::with('image')->paginate(10);
 
@@ -30,7 +30,7 @@ class CategoryController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create() : View
+    public function create(): View
     {
         return view('admin.category.create');
     }
@@ -38,7 +38,7 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CategoryRequest $request) : RedirectResponse
+    public function store(CategoryRequest $request): RedirectResponse
     {
         $tableName = (new Category())->getTable();
 
@@ -55,7 +55,9 @@ class CategoryController extends Controller
             'image_path' => $image
         ]);
 
-        return redirect()->route('admin.categories.index')->with('success', 'Category added');
+        return redirect()
+            ->route('admin.categories.index')
+            ->with('success', 'Category added');
     }
 
     /**
@@ -81,14 +83,21 @@ class CategoryController extends Controller
 //        dump($request->description);
 //        \Pest\Laravel\session()
 //        Session::regenerate($validated);
-        return redirect()->route('admin.categories.index')->withSuccess('Changes saved');;
+        return redirect()
+            ->route('admin.categories.index')
+            ->withSuccess('Changes saved');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id) : RedirectResponse
+    public function destroy(Category $category): RedirectResponse
     {
-        dd(1221);
+
+        $category->delete();
+
+        return redirect()
+            ->route('admin.categories.index')
+            ->with('success', 'Category deleted successfully.');
     }
 }
