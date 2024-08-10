@@ -13,8 +13,8 @@ class Image extends Model
         'image_path',
     ];
 
-    public function imageable()
-    {
-        return $this->morphTo();
-    }
+//    public function imageable()
+//    {
+//        return $this->morphTo();
+//    }
 }

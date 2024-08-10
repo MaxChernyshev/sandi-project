@@ -48,12 +48,15 @@ class CategoryController extends Controller
 
         $category = Category::create($validated);
 
-        $image = $imageService->uploadImage($request->image, $tableName);
+        if (array_key_exists('image', $validated)) {
 
-        $category->images()->create([
-            'category_id' => $category->id,
-            'image_path' => $image
-        ]);
+            $image = $imageService->uploadImage($request->image, $tableName);
+
+            $category->image()->create([
+                'category_id' => $category->id,
+                'image_path' => $image
+            ]);
+        }
 
         return redirect()
             ->route('admin.categories.index')
@@ -71,21 +74,30 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CategoryRequest $request): RedirectResponse
+    public function update(CategoryRequest $request, Category $category): RedirectResponse
     {
+        $tableName = (new Category())->getTable();
+
+        $imageService = new UploadImageService();
 
         $validated = $request->all();
 
+        $category->update($validated);
 
-//        dd($validated);
-//        dump($request->all());
-//        dump($request->name);
-//        dump($request->description);
-//        \Pest\Laravel\session()
-//        Session::regenerate($validated);
-        return redirect()
-            ->route('admin.categories.index')
-            ->withSuccess('Changes saved');
+        if (array_key_exists('image', $validated)) {
+
+            $image = $imageService->updateImage($request->image, $tableName);
+
+            $category->image()->delete();
+
+            $category->image()->create([
+                'category_id' => $category->id,
+                'image_path' => $image
+            ]);
+        }
+
+        return redirect()->route('admin.categories.index')
+            ->with('success', 'Category updated successfully.');
     }
 
     /**
@@ -93,7 +105,6 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category): RedirectResponse
     {
-
         $category->delete();
 
         return redirect()

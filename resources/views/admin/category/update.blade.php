@@ -49,10 +49,11 @@
                                         name="description"
                                         value="{{ old('description') ?? $category->description }}"
                                         rows="6"
-{{--                                        placeholder="Category description"--}}
+                                        {{--                                        placeholder="Category description"--}}
                                         class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary">{{ old('description') ?? $category->description }}</textarea>
                                 </div>
                             </div>
+
 
                             <div class="flex flex-col gap-5.5 p-6.5">
                                 <div>
@@ -60,11 +61,23 @@
                                         Category image
                                     </label>
                                     <input type="file"
-                                           id="description"
-                                           name="description"
+                                           id="image"
+                                           name="image"
                                            class="w-full rounded-md border border-stroke p-3 outline-none transition file:mr-4 file:rounded file:border-[0.5px] file:border-stroke file:bg-[#EEEEEE] file:px-2.5 file:py-1 file:text-sm file:font-normal focus:border-primary file:focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:file:border-strokedark dark:file:bg-white/30 dark:file:text-white"/>
+
+{{--                                    @error('image')--}}
+{{--                                    <span class="text-danger">{{ $message }}</span>--}}
+{{--                                    @enderror--}}
+
+                                    <!-- Display the current image -->
+                                    @if ($category->image)
+                                        <div class="flex flex-row w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
+                                            <img src="{{ $category->image ? $category->image->image_path : '/storage/no-photos.png' }}" alt="Current Image" width="150">
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
+
                             <div class="my-4 p-4 rounded-lg bg-white border-1 dark:bg-boxdark">
                                 <div class="rounded-sm bg-white dark:bg-boxdark">
                                     <div class="flex justify-end gap-5 xl:gap-20">
@@ -75,12 +88,6 @@
                                 </div>
                             </div>
                         </form>
-{{--                        @dump(session()->)--}}
-{{--                        @session('status')--}}
-{{--                        <div class="p-4 bg-green-100">--}}
-{{--                            {{ $value }}--}}
-{{--                        </div>--}}
-{{--                        @endsession--}}
                     </div>
                 </div>
             </div>
