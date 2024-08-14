@@ -25,6 +25,7 @@ class CategoryRequest extends FormRequest
             'name' => ['required', 'string', 'max:191'],
             'description' => ['string', 'max:1000'],
             'image' => ['mimes:png,jpg,jpeg,webp', 'max:4096'],
+            'image_delete' => ['sometimes', 'boolean'],
         ];
     }
 

@@ -7,11 +7,10 @@ use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use App\Traits\ModelFolder;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Session;
 use App\Services\UploadImageService;
+use function Pest\Laravel\delete;
 
 class CategoryController extends Controller
 {
@@ -76,28 +75,65 @@ class CategoryController extends Controller
      */
     public function update(CategoryRequest $request, Category $category): RedirectResponse
     {
+        $validated = $request->all();
+
         $tableName = (new Category())->getTable();
+
+        $oldImage = $category->image->image_path ?? null;
 
         $imageService = new UploadImageService();
 
-        $validated = $request->all();
+        $returnBack = redirect()->route('admin.categories.index')
+            ->with('success', 'Category updated successfully.');
 
-        $category->update($validated);
+        // 1) update without image changing and image deleting
+        if (!array_key_exists('image_delete', $validated) && !array_key_exists('image', $validated)) {
 
-        if (array_key_exists('image', $validated)) {
+            $category->update($validated);
 
-            $image = $imageService->updateImage($request->image, $tableName);
+            return $returnBack;
+        }
+
+        // 2) update with image deleting
+        if (array_key_exists('image_delete', $validated) && $validated['image_delete'] == true) {
+            if ($oldImage != null) {
+
+                $imageService->deleteImage($oldImage);
+
+            }
 
             $category->image()->delete();
+
+            $category->update($validated);
+
+            return $returnBack;
+        }
+
+
+        // 3) update with image changing
+        if (array_key_exists('image', $validated) && !array_key_exists('image_delete', $validated)) {
+
+            if ($category->image != null) {
+
+                $imageService->deleteImage($oldImage);
+
+            }
+
+            $category->image()->delete();
+
+            $category->update($validated);
+
+            $image = $imageService->uploadImage($validated['image'], $tableName);
 
             $category->image()->create([
                 'category_id' => $category->id,
                 'image_path' => $image
             ]);
-        }
 
+            return $returnBack;
+        }
         return redirect()->route('admin.categories.index')
-            ->with('success', 'Category updated successfully.');
+            ->with('success', 'Nothing was changed.');
     }
 
     /**
@@ -105,6 +141,13 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category): RedirectResponse
     {
+        if ($category->image) {
+
+            $imageService = new UploadImageService();
+
+            $imageService->deleteImage($category->image->image_path);
+        }
+
         $category->delete();
 
         return redirect()
