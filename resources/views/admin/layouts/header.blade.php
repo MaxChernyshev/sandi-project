@@ -16,7 +16,7 @@
                 </span>
             </button>
             <!-- Hamburger Toggle BTN -->
-            <a class="block flex-shrink-0 lg:hidden" href="{{ route('admin.main.index') }}"  style="max-width: 25%" class="mx-auto">
+            <a class="block flex-shrink-0 lg:hidden" href="{{ route('admin.main.index') }}" style="max-width: 25%" class="mx-auto">
                 <img src="{{ Vite::asset('resources/images/admin/sandy_logo.png') }}" alt="Sandy's Logo"/>
             </a>
         </div>

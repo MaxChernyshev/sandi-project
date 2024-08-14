@@ -36,6 +36,15 @@
 
 {{--    </script>--}}
 {{--    @endif--}}
-
-    </body>
-    </html>
+<script>
+    function hideSuccessMessage() {
+        var x = document.getElementById("successMessage");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    };
+</script>
+</body>
+</html>

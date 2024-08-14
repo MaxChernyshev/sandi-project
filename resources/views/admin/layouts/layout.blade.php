@@ -25,6 +25,7 @@
         @include('admin.layouts.header')
 {{--        @include('admin.layouts.messages')--}}
         @include('admin.layouts.errors')
+        @include('admin.layouts.messages')
         @yield('content')
     </div>
 </div>

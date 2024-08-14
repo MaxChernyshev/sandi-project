@@ -84,7 +84,7 @@ class CategoryController extends Controller
         $imageService = new UploadImageService();
 
         $returnBack = redirect()->route('admin.categories.index')
-            ->with('success', 'Category updated successfully.');
+            ->with('message', 'Category updated successfully.');
 
         // 1) update without image changing and image deleting
         if (!array_key_exists('image_delete', $validated) && !array_key_exists('image', $validated)) {
