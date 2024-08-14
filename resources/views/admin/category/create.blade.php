@@ -36,7 +36,7 @@
                                             placeholder="Category Name"
                                             class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"/>
                                     @error('name')
-                                    <div class="error">{{ $message }}</div>
+                                    <div class="error text-frontred">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -46,14 +46,11 @@
                                     <label class="mb-3 block text-sm font-medium text-black dark:text-white">
                                         Category description
                                     </label>
-                                    <textarea
-                                            id="description"
+                                    <textarea id="description"
                                             name="description"
                                             rows="6"
-                                            value="{{ old('description') }}"
                                             placeholder="Category description"
-                                            class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary">
-                                    </textarea>
+                                            class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"></textarea>
                                     @error('description')
                                     <div class="error">{{ $message }}</div>
                                     @enderror

@@ -37,8 +37,8 @@
 {{--    </script>--}}
 {{--    @endif--}}
 <script>
-    function hideSuccessMessage() {
-        var x = document.getElementById("successMessage");
+    function hideMessage() {
+        let x = document.getElementById("message");
         if (x.style.display === "none") {
             x.style.display = "block";
         } else {

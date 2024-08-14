@@ -1,4 +1,4 @@
-<main class="{{ !$errors->count() != 0 ? 'hidden' : '' }}">
+<main class="{{ !$errors->count() != 0 ? 'hidden' : '' }}" id="message">
     <div class="mx-4 p-4">
         <div class="max-w-full overflow-x-auto">
             <div class="min-w-[1170px]">
@@ -7,7 +7,7 @@
                         <div class="flex justify-end gap-5 xl:gap-20">
                             @if ($errors->any())
                                 <div class="flex w-full border-l-6 border-[#F87171] bg-[#F87171] bg-opacity-[15%] px-7 py-8 shadow-md dark:bg-[#1B1B24] dark:bg-opacity-30 md:p-9">
-                                    <div class="mr-5 flex h-9 w-full max-w-[36px] items-center justify-center rounded-lg bg-[#F87171]">
+                                    <div class="mr-5 flex h-9 w-full max-w-[36px] items-center justify-center rounded-lg bg-[#F87171]" onclick="hideMessage()">
                                         <svg
                                             width="13"
                                             height="13"

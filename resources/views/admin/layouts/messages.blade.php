@@ -1,4 +1,4 @@
-<main id="successMessage">
+<main id="message">
     @if(session()->has('message'))
         <div class="mx-4 p-4">
             <div class="max-w-full overflow-x-auto">
@@ -7,7 +7,7 @@
                         <div class="rounded-sm bg-white dark:bg-boxdark">
                             <div class="flex justify-end gap-5 xl:gap-20">
                                 <div class="flex w-full border-l-6 border-[#34D399] bg-[#34D399] bg-opacity-[15%] px-7 py-8 shadow-md dark:bg-[#1B1B24] dark:bg-opacity-30 md:p-9">
-                                    <div class="mr-5 flex h-9 w-full max-w-[36px] items-center justify-center rounded-lg bg-[#34D399]" onclick="hideSuccessMessage()">
+                                    <div class="mr-5 flex h-9 w-full max-w-[36px] items-center justify-center rounded-lg bg-[#34D399]" onclick="hideMessage()">
                                         <svg
                                             width="16"
                                             height="12"
