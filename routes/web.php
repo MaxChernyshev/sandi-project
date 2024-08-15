@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MainController as AdminMain;
 use App\Http\Controllers\Front\MainController as FrontMain;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\StatementController;
 
 use App\Http\Middleware\AdminPanelMiddleware;
 
@@ -46,6 +47,20 @@ Route::name('admin.')
                 Route::put('/update/{category:id}', [CategoryController::class, 'update'])->name('update');
 
                 Route::delete('/delete/{category:id}', [CategoryController::class, 'destroy'])->name('delete');
+            });
+
+        Route::prefix('statements')
+            ->name('statements.')
+            ->group(function () {
+                Route::get('/', [StatementController::class, 'index'])->name('index');
+
+                Route::get('/create', [StatementController::class, 'create'])->name('create');
+                Route::post('/store', [StatementController::class, 'store'])->name('store');
+
+                Route::get('/edit/{statement:id}', [StatementController::class, 'edit'])->name('edit');
+                Route::put('/update/{statement:id}', [StatementController::class, 'update'])->name('update');
+
+                Route::delete('/delete/{statement:id}', [StatementController::class, 'destroy'])->name('delete');
             });
 
     });

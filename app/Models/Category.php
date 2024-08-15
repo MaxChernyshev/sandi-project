@@ -21,6 +21,7 @@ class Category extends Model
             });
         });
     }
+
     protected $fillable = [
         'name',
         'description',
@@ -35,6 +36,4 @@ class Category extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
-
-
 }
