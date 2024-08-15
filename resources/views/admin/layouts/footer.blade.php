@@ -1,3 +1,5 @@
+{{-- TODO JS script to hide errors or messages div --}}
+
 <script>
     function hideMessage() {
         let x = document.getElementById("successOrError");

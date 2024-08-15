@@ -22,16 +22,16 @@ class StatementRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:191'],
-            'content' => ['required', 'text'],
+            'title' => ['required', 'string', 'max:191'],
+            'content' => ['required'],
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required' => 'field "Name" is required."',
-            'name.max' => 'Maximum 191 characters allowed.',
+            'title.required' => 'field "Name" is required."',
+            'title.max' => 'Maximum 191 characters allowed.',
             'content.required' => 'field "Content" is required.',
         ];
     }

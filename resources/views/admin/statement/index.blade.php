@@ -33,7 +33,7 @@
                             </div>
 
                             <div class="flex flex-row justify-end">
-
+{{--@dd(1221)--}}
                                 <x-admin.edit-icon href="{{ route('admin.statements.edit', ['statement' => $statement])}}" />
 
                                 <x-admin.delete-icon action="{{ route('admin.statements.delete', ['statement' => $statement])}}" nameOfInstance="Statement"/>
