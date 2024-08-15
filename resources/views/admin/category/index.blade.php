@@ -36,25 +36,18 @@
                                 <p class="text-[#637381] dark:text-bodydark">{{ $category->name }}</p>
                             </div>
 
+                            {{-- TODO insert LiveWire for Image with temporary URL--}}
+
                             <div class="flex flex-row w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
                                 <img class="object-none h-16 w-16" src="{{ $category->image ?$category->image->image_path : '/storage/no-photos.png' }}">
                             </div>
 
                             <div class="flex flex-row justify-end">
-                                <a class="flex items-center justify-center w-12 px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4"
-                                   href="{{ route('admin.categories.edit', ['category' => $category])}}">
-                                    <i class="fa fa-edit"></i>
-                                </a>
 
-                                <div class="flex items-center justify-center">
-                                    <form action="{{ route('admin.categories.delete', ['category' => $category]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this Category?');">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="w-12 px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                                            <i class="fa fa-trash-can"></i>
-                                        </button>
-                                    </form>
-                                </div>
+                                <x-admin.edit-icon href="{{ route('admin.categories.edit', ['category' => $category])}}" />
+
+                                <x-admin.delete-icon action="{{ route('admin.categories.delete', ['category' => $category])}}" nameOfInstance="Category"/>
+
                             </div>
 
                         </div>
