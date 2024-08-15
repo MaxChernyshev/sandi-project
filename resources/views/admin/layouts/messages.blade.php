@@ -1,4 +1,4 @@
-<main id="successfullMessage">
+<main id="successOrError">
     @if(session()->has('message'))
         <div class="mx-4 p-4">
             <div class="max-w-full overflow-x-auto">

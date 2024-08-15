@@ -1,4 +1,4 @@
-<main class="{{ !$errors->count() != 0 ? 'hidden' : '' }}" id="message">
+<main class="{{ !$errors->count() != 0 ? 'hidden' : '' }}" id="successOrError">
     <div class="mx-4 p-4">
         <div class="max-w-full overflow-x-auto">
             <div class="min-w-[1170px]">
