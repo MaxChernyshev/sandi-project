@@ -38,7 +38,7 @@
 {{--    @endif--}}
 <script>
     function hideMessage() {
-        let x = document.getElementById("message");
+        let x = document.getElementById("successfullMessage");
         if (x.style.display === "none") {
             x.style.display = "block";
         } else {
