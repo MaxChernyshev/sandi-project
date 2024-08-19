@@ -11,6 +11,10 @@
                 'resources/css/admin/simple-datatables.css',
                 'resources/js/admin/index.js'
     ])
+
+    @if ((Route::currentRouteName() == 'admin.statements.edit' && request()->route('statement:id') == $statement->id) || Route::currentRouteName() == 'admin.statements.create' )
+        @vite('resources/js/admin/quill-form.js')
+    @endif
 </head>
 
 <body
@@ -23,7 +27,7 @@
     @include('admin.layouts.sidebar')
     <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
         @include('admin.layouts.header')
-{{--        @include('admin.layouts.messages')--}}
+        {{--        @include('admin.layouts.messages')--}}
         @include('admin.layouts.errors')
         @include('admin.layouts.messages')
         @yield('content')
