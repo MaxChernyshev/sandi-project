@@ -19,6 +19,47 @@ class UploadImageService
         return $name;
     }
 
+//    public function updateImage($oldImage, $folder, $image = NULL)
+//    {
+//        dump($file);
+//        dump($folder);
+//        dump($image);
+////        dd();
+//        if ($image) {
+//            $image = '/public' . substr($image, strlen('/storage'));
+//            Storage::delete($image);
+//        }
+//
+//        return '/storage/' . $file->store("/$folder", 'public');
+//    }
+
+//    public function updateImage($file, $folder, $image = NULL)
+//    {
+//        dump($file);
+//        dump($folder);
+//        dump($image);
+////        dd();
+//        if ($image) {
+//            $image = '/public' . substr($image, strlen('/storage'));
+//            Storage::delete($image);
+//        }
+//
+//        return '/storage/' . $file->store("/$folder", 'public');
+//    }
+
+    public function deleteImage($image)
+    {
+        if (is_array($image) or $image instanceof Collection) {
+            foreach ($image as $media) {
+                $oldImagePath = '/public' . substr($media->link, strlen('/storage'));
+                Storage::delete($oldImagePath);
+            }
+        } elseif ($image) {
+            $image = '/public' . substr($image, strlen('/storage'));
+            Storage::delete($image);
+        }
+    }
+
     public function uploadProfileImage($file, $user)
     {
         $name = null;
@@ -42,30 +83,6 @@ class UploadImageService
             return Storage::disk('profile_photos')->delete($img);
         } else {
             return false;
-        }
-    }
-
-
-    public function updateImage($file, $folder, $image = NULL)
-    {
-        if ($image) {
-            $image = '/public' . substr($image, strlen('/storage'));
-            Storage::delete($image);
-        }
-
-        return '/storage/' . $file->store("/$folder", 'public');
-    }
-
-    public function deleteImage($image)
-    {
-        if (is_array($image) or $image instanceof Collection) {
-            foreach ($image as $media) {
-                $oldImagePath = '/public' . substr($media->link, strlen('/storage'));
-                Storage::delete($oldImagePath);
-            }
-        } elseif ($image) {
-            $image = '/public' . substr($image, strlen('/storage'));
-            Storage::delete($image);
         }
     }
 

@@ -10,6 +10,18 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($category) {
+            // Delete all related images
+            $category->images()->each(function ($image) {
+                $image->delete();
+            });
+        });
+    }
+
     protected $fillable = [
         'name',
         'description',
@@ -24,6 +36,4 @@ class Category extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
-
-
 }
