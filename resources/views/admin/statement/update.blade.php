@@ -10,7 +10,7 @@
 
                 <div class="my-2 p-2 rounded-lg bg-white border-1 dark:bg-boxdark">
                     <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-                        <form role="form" method="POST" action="{{ route('admin.statements.update', ['statement' => $statement]) }}" enctype="multipart/form-data">
+                        <form id="myForm" role="form" method="POST" action="{{ route('admin.statements.update', ['statement' => $statement]) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
@@ -31,21 +31,17 @@
                             </div>
                             @enderror
 
-
-                            <x-admin.textarea-input
-                                label="Statement Content"
-                                id="content"
+                            <x-admin.quill-editor
+                                title="Statement Content"
                                 name="content"
-                                content="{{ old('content') ?? $statement->content }}"
-                                rows="4"
+                                id="hidden-content"
+                                value="{{ old('content') ?? $statement->content }}"
                             />
-                            @error('content')
-                            <div class="flex flex-col p-6.5 pt-0">
-                                <label class="mb-3 block text-sm font-medium pl-6.5">
-                                    <div class="error text-frontred">{{ $message }}</div>
-                                </label>
+                            <div class="flex flex-col gap-5.5 p-6.5 pt-0">
+                                @error('content')
+                                <div class="error text-frontred">{{ $message }}</div>
+                                @enderror
                             </div>
-                            @enderror
 
                             <x-admin.save-button message="Save Changes"/>
 

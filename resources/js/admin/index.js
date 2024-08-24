@@ -27,6 +27,7 @@ import "./components/data-table-01.js";
 import "./components/data-table-02.js";
 import "./components/data-stats-slider.js";
 
+
 // import Swal from "sweetalert2/dist/sweetalert2.all.min.js";
 
 

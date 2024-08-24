@@ -12,7 +12,7 @@
                 'resources/js/admin/index.js'
     ])
 
-    @if ((Route::currentRouteName() == 'admin.statements.edit' && request()->route('statement:id') == $statement->id) || Route::currentRouteName() == 'admin.statements.create' )
+    @if ((Route::currentRouteName() == 'admin.statements.edit') || Route::currentRouteName() == 'admin.statements.create' )
         @vite('resources/js/admin/quill-form.js')
     @endif
 </head>

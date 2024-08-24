@@ -1,4 +1,4 @@
-<div class="flex flex-col p-6.5">
+<div class="flex flex-col p-6.5 pb-0.5">
     <label class="mb-3 block text-sm font-medium text-black dark:text-white">
         {{ $label }}
     </label>

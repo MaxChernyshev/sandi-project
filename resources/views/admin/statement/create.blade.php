@@ -12,43 +12,27 @@
                         <form id="myForm" role="form" method="POST" action="{{ route('admin.statements.store') }}" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
-                            <div class="flex flex-col gap-5.5 p-6.5">
-                                <div>
-                                    <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-                                        Statement title
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="title"
-                                        name="title"
-                                        value="{{ old('title') }}"
-                                        placeholder="Statement Title"
-                                        class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"/>
-                                    @error('title')
-                                    <div class="error text-frontred">{{ $message }}</div>
-                                    @enderror
-                                </div>
+
+                            <x-admin.text-input
+                                label="Statement Name"
+                                fieldType="text"
+                                id="title"
+                                name="title"
+                                value=""
+                                placeholder="Statement Title"
+                                :message={{ $message }}
+                            />
+                            <div class="flex flex-col gap-5.5 p-6.5 pt-0">
+                                @error('title')
+                                <div class="error text-frontred">{{ $message }}</div>
+                                @enderror
                             </div>
 
-
-
-
-                            <div class="flex flex-col gap-5.5 p-6.5">
-                                <div>
-                                    <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-                                        Statement title
-                                    </label>
-
-                                    {{-- TODO WYSIWYG Editor Quill put js and css in resource folder CDN instead --}}
-
-                                    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
-
-                                    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
-
-                                    <div id="editor"></div>
-                                    <textarea name="content" id="hidden-content" style="display:none"></textarea>
-                                </div>
-
+                            <x-admin.quill-editor title="Statement Content" name="content" id="hidden-content"/>
+                            <div class="flex flex-col gap-5.5 p-6.5 pt-0">
+                                @error('content')
+                                <div class="error text-frontred">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <x-admin.save-button message="Save new Statement"/>

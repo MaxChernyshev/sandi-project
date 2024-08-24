@@ -31,8 +31,7 @@ class StatementController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-//    public function store(StatementRequest $request, Statement $statement): RedirectResponse
-    public function store(Request $request, Statement $statement): RedirectResponse
+    public function store(StatementRequest $request): RedirectResponse
     {
         dd($request->all());
         $validated = $request->all();
@@ -68,6 +67,7 @@ class StatementController extends Controller
     {
         $validated = $request->all();
 
+        dd($validated);
         $statement->update($validated);
 
         return redirect()->route('admin.statements.index')
