@@ -33,23 +33,13 @@ class StatementController extends Controller
      */
     public function store(StatementRequest $request): RedirectResponse
     {
-        dd($request->all());
         $validated = $request->all();
-
 
         Statement::create($validated);
 
         return redirect()
             ->route('admin.statements.index')
             ->with('success', 'Statement added');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**
@@ -67,12 +57,10 @@ class StatementController extends Controller
     {
         $validated = $request->all();
 
-        dd($validated);
         $statement->update($validated);
 
         return redirect()->route('admin.statements.index')
             ->with('message', 'Statement updated successfully.');
-
     }
 
     /**

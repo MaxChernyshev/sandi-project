@@ -4,6 +4,6 @@
             {{ $title }}
         </label>
         <div id="editor"></div>
-        <input class="quill-textarea" name="{{ $name }}" id="{{ $id }}" style="display:none" value="{{ $value ?? '' }}"/>
+        <input class="quill-textarea" name="{{ $name }}" id="{{ $id }}" style="display:none" value="{{ $value ? html_entity_decode(strip_tags($value)) : '' }}"/>
     </div>
 </div>
