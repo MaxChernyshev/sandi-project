@@ -13,10 +13,9 @@
             </div>
             <div class="w-full sm:w-1/2 md:w-1/4 lg:1/4 xl:1/4 mb-4 sm:mb-0">
                 <ul>
-                    <li class="mb-2">Link 1</li>
-                    <li class="mb-2">Link 2</li>
-                    <li class="mb-2">Link 3</li>
-                    <li class="mb-2">Link 4</li>
+                    @foreach($statements as $statement)
+                        <li class="mb-2">{{ $statement->title }}</li>
+                    @endforeach
                 </ul>
             </div>
             <div class="w-full sm:w-1/2 md:w-1/4 lg:1/4 xl:1/4 mb-4 sm:mb-0">
