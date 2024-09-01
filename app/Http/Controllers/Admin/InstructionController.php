@@ -18,7 +18,6 @@ class InstructionController extends Controller
     {
         $instructions = Instruction::paginate(10);
 
-//        dd($instructions);
         return view('admin.instruction.index', compact('instructions'));
     }
 
