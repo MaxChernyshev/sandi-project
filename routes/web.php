@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\StatementController as AdminStatement;
 use App\Http\Controllers\Front\StatementController as FrontStatement;
 use App\Http\Controllers\Admin\InstructionController as AdminInstruction;
 use App\Http\Controllers\Front\InstructionController as FrontInstruction;
+use App\Http\Controllers\Admin\IngridientController;
 
 use App\Http\Middleware\AdminPanelMiddleware;
 
@@ -78,6 +79,20 @@ Route::name('admin.')
                 Route::put('/update/{instruction:id}', [AdminInstruction::class, 'update'])->name('update');
 
                 Route::delete('/delete/{instruction:id}', [AdminInstruction::class, 'destroy'])->name('delete');
+            });
+
+        Route::prefix('ingridients')
+            ->name('ingridients.')
+            ->group(function () {
+                Route::get('/', [IngridientController::class, 'index'])->name('index');
+
+                Route::get('/create', [IngridientController::class, 'create'])->name('create');
+                Route::post('/store', [IngridientController::class, 'store'])->name('store');
+
+                Route::get('/edit/{ingridient:id}', [IngridientController::class, 'edit'])->name('edit');
+                Route::put('/update/{ingridient:id}', [IngridientController::class, 'update'])->name('update');
+
+                Route::delete('/delete/{ingridient:id}', [IngridientController::class, 'destroy'])->name('delete');
             });
 
     });
