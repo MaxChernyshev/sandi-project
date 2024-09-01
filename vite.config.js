@@ -18,6 +18,7 @@ export default defineConfig({
 
                 // FRONT
                 'resources/css/front/app.css',
+                'resources/css/front/quill.css',
                 'resources/js/front/app.js',
 
                 // 'resources/js/admin/us-aea-en.js',

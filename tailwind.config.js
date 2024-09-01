@@ -16,6 +16,7 @@ module.exports = {
         './resources/views/front/*.{html,php}',
         './resources/views/front/**/*.{html,php}',
         './resources/css/front/*.css',
+        './resources/css/front/quill.css',
         './resources/js/*.js',
         './resources/js/front/*.js',
 

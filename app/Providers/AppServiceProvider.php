@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\Statement;
+use App\Http\View\Composers\StatementComposer;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 
@@ -24,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::share('statements', Statement::all());
+        View::composer('front.layouts.footer', StatementComposer::class);
     }
 }

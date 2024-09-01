@@ -5,7 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MainController as AdminMain;
 use App\Http\Controllers\Front\MainController as FrontMain;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\StatementController;
+use App\Http\Controllers\Admin\StatementController as AdminStatement;
+use App\Http\Controllers\Front\StatementController as FrontStatement;
+use App\Http\Controllers\Admin\InstructionController as AdminInstruction;
+use App\Http\Controllers\Front\InstructionController as FrontInstruction;
 
 use App\Http\Middleware\AdminPanelMiddleware;
 
@@ -52,15 +55,29 @@ Route::name('admin.')
         Route::prefix('statements')
             ->name('statements.')
             ->group(function () {
-                Route::get('/', [StatementController::class, 'index'])->name('index');
+                Route::get('/', [AdminStatement::class, 'index'])->name('index');
 
-                Route::get('/create', [StatementController::class, 'create'])->name('create');
-                Route::post('/store', [StatementController::class, 'store'])->name('store');
+                Route::get('/create', [AdminStatement::class, 'create'])->name('create');
+                Route::post('/store', [AdminStatement::class, 'store'])->name('store');
 
-                Route::get('/edit/{statement:id}', [StatementController::class, 'edit'])->name('edit');
-                Route::put('/update/{statement:id}', [StatementController::class, 'update'])->name('update');
+                Route::get('/edit/{statement:id}', [AdminStatement::class, 'edit'])->name('edit');
+                Route::put('/update/{statement:id}', [AdminStatement::class, 'update'])->name('update');
 
-                Route::delete('/delete/{statement:id}', [StatementController::class, 'destroy'])->name('delete');
+                Route::delete('/delete/{statement:id}', [AdminStatement::class, 'destroy'])->name('delete');
+            });
+
+        Route::prefix('instructions')
+            ->name('instructions.')
+            ->group(function () {
+                Route::get('/', [AdminInstruction::class, 'index'])->name('index');
+
+                Route::get('/create', [AdminInstruction::class, 'create'])->name('create');
+                Route::post('/store', [AdminInstruction::class, 'store'])->name('store');
+
+                Route::get('/edit/{instruction:id}', [AdminInstruction::class, 'edit'])->name('edit');
+                Route::put('/update/{instruction:id}', [AdminInstruction::class, 'update'])->name('update');
+
+                Route::delete('/delete/{instruction:id}', [AdminInstruction::class, 'destroy'])->name('delete');
             });
 
     });
@@ -72,6 +89,19 @@ Route::name('admin.')
 Route::name('front.')
     ->group(function () {
         Route::get('/', [FrontMain::class, 'index'])->name('index');
+
+        Route::prefix('statement')
+            ->name('statement.')
+            ->group(function () {
+                Route::get('/{statement:id}', [FrontStatement::class, 'show'])->name('show');
+            });
+
+        Route::prefix('instructions')
+            ->name('instructions.')
+            ->group(function () {
+                Route::get('/', [FrontInstruction::class, 'index'])->name('index');
+                Route::get('/{instruction:id}', [FrontInstruction::class, 'show'])->name('show');
+            });
     });
 
 // END FRONT

@@ -8,8 +8,10 @@
     <title>Sandy's Ukrainian Kitchen</title>
     @vite([
         'resources/css/front/app.css',
+        'resources/css/front/quill.css',
         'resources/js/front/app.js',
         ])
+
 </head>
 <body class="font-lora">
 

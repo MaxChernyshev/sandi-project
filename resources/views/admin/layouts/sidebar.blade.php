@@ -139,6 +139,15 @@
                     </a>
                 </li>
 
+                <li class="{{ Route::currentRouteName() ==='admin.instructions.index' ? 'bg-boxdark' : '' }}">
+                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white"
+                       href="{{ route('admin.instructions.index') }}">
+
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>How to cook</p>
+                    </a>
+                </li>
+
             </ul>
         </nav>
     </div>

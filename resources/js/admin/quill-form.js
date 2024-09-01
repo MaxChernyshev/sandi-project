@@ -13,26 +13,26 @@ const quill = new Quill('#editor', {
             [{'header': 1}, {'header': 2}],
             [{'list': 'ordered'}, {'list': 'bullet'}],
             [{'script': 'sub'}, {'script': 'super'}],
-            [{'indent': '-1'}, {'indent': '+1'}],
+            // [{'indent': '-1'}, {'indent': '+1'}],
             [{'size': ['small', false, 'large', 'huge']}],
-            [{'header': [1, 2, 3, 4, 5, 6, false]}],
+            // [{'header': [1, 2, 3, 4, 5, 6, false]}],
             [{'color': []}, {'background': []}],
-            [{'font': []}],
+            // [{'font': []}],
             [{'align': []}],
             ['clean'],
             ['link', 'image', 'video']
         ],
-        htmlEditButton: {
-            debug: true,
-            msg: "Edit the content in HTML format",
-            okText: "Ok",
-            cancelText: "Cancel",
-            buttonHTML: "HTML",
-            buttonTitle: "Show HTML source",
-            syntax: false,
-            prependSelector: 'div#myelement',
-            editorModules: {}
-        },
+        // htmlEditButton: {
+        //     debug: true,
+        //     msg: "Edit the content in HTML format",
+        //     okText: "Ok",
+        //     cancelText: "Cancel",
+        //     buttonHTML: "HTML",
+        //     buttonTitle: "Show HTML source",
+        //     syntax: false,
+        //     prependSelector: 'div#myelement',
+        //     editorModules: {}
+        // },
     },
 
 });
