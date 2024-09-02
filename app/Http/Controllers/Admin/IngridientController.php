@@ -17,7 +17,7 @@ class IngridientController extends Controller
     public function index(Request $request): View
     {
         if ($request->has('name')) {
-            $ingridients = Ingridient::where('name', 'like', '%' . $request->all()['name'] . '%')
+            $ingridients = Ingridient::where('name', 'like', '%' . $request->get('name') . '%')
                 ->paginate(20);
         } else {
             $ingridients = Ingridient::paginate(20);
