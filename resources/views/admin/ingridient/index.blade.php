@@ -20,7 +20,6 @@
                     buttonName="Search Ingridient"
                     message="Create Ingridient"
                     :href="route('admin.ingridients.create')"/>
-
                 {{-- END Search section --}}
 
 
