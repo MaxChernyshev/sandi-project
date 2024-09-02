@@ -10,6 +10,7 @@ use App\Http\Controllers\Front\StatementController as FrontStatement;
 use App\Http\Controllers\Admin\InstructionController as AdminInstruction;
 use App\Http\Controllers\Front\InstructionController as FrontInstruction;
 use App\Http\Controllers\Admin\IngridientController;
+use App\Http\Controllers\Admin\ProductController as AdminProduct;
 
 use App\Http\Middleware\AdminPanelMiddleware;
 
@@ -38,6 +39,19 @@ Route::name('admin.')
                 Route::get('/', [AdminMain::class, 'index'])->name('index');
             });
 
+        Route::prefix('products')
+            ->name('products.')
+            ->group(function () {
+                Route::get('/', [AdminProduct::class, 'index'])->name('index');
+
+                Route::get('/create', [AdminProduct::class, 'create'])->name('create');
+                Route::post('/store', [AdminProduct::class, 'store'])->name('store');
+
+                Route::get('/edit/{product:id}', [AdminProduct::class, 'edit'])->name('edit');
+                Route::put('/update/{product:id}', [AdminProduct::class, 'update'])->name('update');
+
+                Route::delete('/delete/{product:id}', [AdminProduct::class, 'destroy'])->name('delete');
+            });
 
         Route::prefix('categories')
             ->name('categories.')

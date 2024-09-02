@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class CategorySeeder extends Seeder
 {
@@ -12,7 +13,7 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-//        Schema::disableForeignKeyConstraints('users_role_id_foreign');
+        Schema::disableForeignKeyConstraints('products_category_id_foreign');
 
         Category::truncate();
 
@@ -33,6 +34,6 @@ class CategorySeeder extends Seeder
             'description' => fake()->sentence(5),
         ]);
 
-//        Schema::enableForeignKeyConstraints('users_role_id_foreign');
+        Schema::enableForeignKeyConstraints('products_category_id_foreign');
     }
 }

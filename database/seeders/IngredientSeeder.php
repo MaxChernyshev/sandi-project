@@ -3,16 +3,19 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Ingridient;
+use App\Models\Ingredient;
+use Illuminate\Support\Facades\Schema;
 
-class IngridientSeeder extends Seeder
+class IngredientSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Ingridient::truncate();
+        Schema::disableForeignKeyConstraints('ingredient_product_ingredient_id_foreign');
+        Ingredient::truncate();
+
 
         $ingridients = [
             "beet",
@@ -51,10 +54,12 @@ class IngridientSeeder extends Seeder
         ];
 
         foreach ($ingridients as $ingridient) {
-            Ingridient::create([
+            Ingredient::create([
                 'name' => $ingridient,
             ]);
         }
+
+        Schema::enableForeignKeyConstraints('ingredient_product_ingredient_id_foreign');
 
     }
 }
