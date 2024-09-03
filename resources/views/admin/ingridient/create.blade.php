@@ -14,12 +14,12 @@
                             @method('POST')
 
                             <x-admin.text-input
-                                label="Ingridient Name"
+                                label="Ingredient Name"
                                 fieldType="text"
                                 id="name"
                                 name="name"
                                 value=""
-                                placeholder="Ingridient Name"
+                                placeholder="Ingredient Name"
                                 :message={{ $message }}
                             />
                             <div class="flex flex-col gap-5.5 p-6.5 pt-0">

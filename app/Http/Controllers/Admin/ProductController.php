@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
+use App\Models\Category;
+use App\Models\Ingredient;
+use App\Models\Instruction;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -14,7 +17,7 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request) : View
+    public function index(Request $request): View
     {
         if ($request->has('name')) {
             $products = Product::where('name', 'like', '%' . $request->get('name') . '%')
@@ -30,7 +33,10 @@ class ProductController extends Controller
      */
     public function create(): View
     {
-        return view('admin.product.create');
+        $ingredients = Ingredient::all()->toArray();
+        $instructions = Instruction::pluck('title', 'id')->toArray();
+        $categories = Category::pluck('name', 'id')->toArray();
+        return view('admin.product.create', compact('ingredients', 'instructions', 'categories'));
     }
 
     /**

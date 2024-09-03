@@ -13,10 +13,13 @@
     ])
 
     @if ((
-        Route::currentRouteName() == 'admin.statements.edit') ||
+        Route::currentRouteName() == 'admin.statements.edit' ||
         Route::currentRouteName() == 'admin.statements.create' ||
         Route::currentRouteName() == 'admin.instructions.edit' ||
-        Route::currentRouteName() == 'admin.instructions.create')
+        Route::currentRouteName() == 'admin.instructions.create' ||
+        Route::currentRouteName() == 'admin.products.edit' ||
+        Route::currentRouteName() == 'admin.products.create'
+        ))
         @vite('resources/js/admin/quill-form.js')
     @endif
 </head>

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Instruction;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class InstructionSeeder extends Seeder
 {
@@ -12,6 +13,7 @@ class InstructionSeeder extends Seeder
      */
     public function run(): void
     {
+        Schema::disableForeignKeyConstraints('products_instruction_id_foreign');
         Instruction::truncate();
 
         Instruction::create([
@@ -33,5 +35,7 @@ class InstructionSeeder extends Seeder
             'title' => 'Pre-cooked Cabbage Rolls',
             'content' => fake()->sentence(5),
         ]);
+
+        Schema::enableForeignKeyConstraints('products_instruction_id_foreign');
     }
 }

@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('name')->unique();
             $table->text('description')->nullable();
             $table->foreignId('category_id')->constrained();
+            $table->foreignId('instruction_id')->constrained();
             $table->string('weight')->nullable();
             $table->tinyInteger('quantity')->nullable();
             $table->timestamps();
