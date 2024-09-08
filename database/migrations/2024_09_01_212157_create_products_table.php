@@ -14,10 +14,10 @@ return new class extends Migration {
             $table->id();
             $table->string('name')->unique();
             $table->text('description')->nullable();
-            $table->foreignId('category_id')->constrained();
-            $table->foreignId('instruction_id')->constrained();
+            $table->foreignId('category_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId('instruction_id')->nullable()->constrained()->cascadeOnDelete();
             $table->string('weight')->nullable();
-            $table->tinyInteger('quantity')->nullable();
+            $table->integer('quantity')->nullable();
             $table->timestamps();
         });
     }

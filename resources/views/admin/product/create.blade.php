@@ -74,16 +74,30 @@
                             {{--END Field Weight--}}
 
                             {{--Field Weight--}}
-                            <x-admin.label for="quantity" value="Product Quantity" />
+                            <x-admin.label for="Quantity" value="Product Quantity" />
                             <x-admin.text-input
-                                fieldType="text"
+                                fieldType="numeric"
                                 id="quantity"
                                 name="quantity"
                                 value=""
                                 placeholder="Product Quantity"
                             />
                             <x-admin.error-message fieldName="quantity" :message={{ $message }}/>
-                            {{--END Field Weight--}}
+                            {{--END Field Quantity--}}
+
+                            {{--Field Ingredients--}}
+                            <x-admin.label for="Ingredients" value="Product Ingredients" />
+                            <x-admin.input-checkboxes
+                                fieldType="checkbox"
+                                id="ingredients"
+                                name="ingredients"
+                                value=""
+                                placeholder="Product Ingredients"
+                                :options="$ingredients"
+                                :selected="[]"
+                            />
+                            <x-admin.error-message fieldName="ingredients" :message={{ $message }}/>
+                            {{--END Field Ingredients--}}
 
 
                             <div class="flex flex-col gap-5.5 p-6.5">

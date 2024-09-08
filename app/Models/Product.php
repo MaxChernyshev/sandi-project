@@ -13,9 +13,11 @@ class Product extends Model
         'name',
         'description',
         'category_id',
+        'instruction_id',
         'weight',
         'quantity',
     ];
+
 
     public function image()
     {

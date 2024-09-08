@@ -26,13 +26,22 @@ class CategorySeeder extends Seeder
             'description' => fake()->sentence(5),
         ]);
         Category::create([
-            'name' => 'Borsch',
+            'name' => 'Borsch & Soups',
             'description' => fake()->sentence(5),
         ]);
         Category::create([
-            'name' => 'Sauce',
+            'name' => 'Sauces',
             'description' => fake()->sentence(5),
         ]);
+        Category::create([
+            'name' => 'Desserts',
+            'description' => fake()->sentence(5),
+        ]);
+        Category::create([
+            'name' => 'Sausages',
+            'description' => fake()->sentence(5),
+        ]);
+
 
         Schema::enableForeignKeyConstraints('products_category_id_foreign');
     }

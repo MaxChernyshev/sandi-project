@@ -8,12 +8,16 @@ use App\Models\Category;
 use App\Models\Ingredient;
 use App\Models\Instruction;
 use App\Models\Product;
+use App\Services\UploadImageService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Traits\ModelFolder;
 
 class ProductController extends Controller
 {
+    use ModelFolder;
+
     /**
      * Display a listing of the resource.
      */
@@ -33,7 +37,7 @@ class ProductController extends Controller
      */
     public function create(): View
     {
-        $ingredients = Ingredient::all()->toArray();
+        $ingredients = Ingredient::pluck('name', 'id')->toArray();
         $instructions = Instruction::pluck('title', 'id')->toArray();
         $categories = Category::pluck('name', 'id')->toArray();
         return view('admin.product.create', compact('ingredients', 'instructions', 'categories'));
@@ -44,7 +48,48 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request): RedirectResponse
     {
-        dd($request->all());
+
+        $tableName = (new Product())->getTable();
+//dd($tableName);
+        $imageService = new UploadImageService();
+
+        $validated = $request->all();
+//dd($validated['image']);
+
+
+        $product = Product::create([
+            'name' => $validated['name'],
+            'description' => $validated['description'],
+            'category_id' => $validated['category_id'],
+            'instruction_id' => $validated['instruction_id'],
+            'weight' => $validated['weight'],
+            'quantity' => $validated['quantity'],
+        ]);
+
+        // Attach the selected ingredients to the product
+        $product->ingredients()->attach($validated['ingredients']);
+
+//dd($validated);
+//        $product = Product::create($validated);
+
+        if (array_key_exists('image', $validated)) {
+
+            $image = $imageService->uploadImage($validated['image'], $tableName);
+
+            $product->image()->create([
+                'product_id' => $product->id,
+                'image_path' => $image
+            ]);
+        }
+
+
+//        dd($request->all());
+//        Product::create($request->validated());
+//        dd($request->all());
+
+        return redirect()
+            ->route('admin.products.index')
+            ->with('success', 'Product added');
     }
 
     /**
@@ -73,6 +118,13 @@ class ProductController extends Controller
      */
     public function destroy(Product $product): RedirectResponse
     {
+        if ($product->image) {
+
+            $imageService = new UploadImageService();
+
+            $imageService->deleteImage($product->image->image_path);
+        }
+
         $product->delete();
 
         return redirect()
