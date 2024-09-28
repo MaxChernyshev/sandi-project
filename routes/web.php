@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\InstructionController as AdminInstruction;
 use App\Http\Controllers\Front\InstructionController as FrontInstruction;
 use App\Http\Controllers\Admin\IngridientController;
 use App\Http\Controllers\Admin\ProductController as AdminProduct;
+use App\Http\Controllers\Admin\ProductImportController;
 
 use App\Http\Middleware\AdminPanelMiddleware;
 
@@ -51,6 +52,9 @@ Route::name('admin.')
                 Route::put('/update/{product:id}', [AdminProduct::class, 'update'])->name('update');
 
                 Route::delete('/delete/{product:id}', [AdminProduct::class, 'destroy'])->name('delete');
+
+                Route::get('/import', [ProductImportController::class, 'importView'])->name('import.view');
+                Route::post('/importProducts', [ProductImportController::class, 'importProducts'])->name('import.products');
             });
 
         Route::prefix('categories')
