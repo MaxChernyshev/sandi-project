@@ -5,6 +5,7 @@ namespace App\Imports;
 use App\Models\Category;
 use App\Models\Instruction;
 use App\Models\Product;
+use Illuminate\Support\Facades\Schema;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
@@ -29,7 +30,19 @@ class ProductsImport implements ToCollection, WithStartRow
 
     public function collection(Collection $collection)
     {
+
+//        Schema::disableForeignKeyConstraints('ingredient_product_product_id_foreign');
+//
+//        Product::truncate();
         foreach ($collection as $row) {
+
+//            if (isset($row[7])) {
+//                dump('YES');
+//            }
+//            else {
+//                dump('NO');
+//            }
+//            dump($row);
             $category = Category::where('name', $row[2])->get('id')->first();
 
             $instruction = Instruction::where('title', $row[3])->get('id')->first();
@@ -40,11 +53,25 @@ class ProductsImport implements ToCollection, WithStartRow
                 'category_id' => $category->id ?? null,
                 'instruction_id' => $instruction->id ?? null,
                 'weight' => $row[4],
-                'quantity' => intval([5]),
+                'quantity' => intval($row[5]),
             ];
 
-            Product::create($data);
+            $product = Product::create($data);
+
+            if (isset($row[7])) {
+
+//                $image = $imageService->uploadImage($request->image, $tableName);
+
+                $product->image()->create([
+                    'product_id' => $product->id,
+                    'image_path' => '/storage/products/' . $row[7]
+                ]);
+            }
+
         }
+//        dd();
+
+//        Schema::enableForeignKeyConstraints('ingredient_product_product_id_foreign');
     }
 
 //    public function model(array $row)
