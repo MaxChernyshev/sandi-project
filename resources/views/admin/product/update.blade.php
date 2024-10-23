@@ -10,16 +10,16 @@
 
                 <div class="my-2 p-2 rounded-lg bg-white border-1 dark:bg-boxdark">
                     <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-                        <form role="form" method="POST" action="{{ route('admin.categories.update', ['category' => $category]) }}" enctype="multipart/form-data">
+                        <form role="form" method="POST" action="{{ route('admin.products.update', ['product' => $product]) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
                             <x-admin.text-input
-                                label="Category Name"
+                                label="Product Name"
                                 fieldType="text"
                                 id="name"
                                 name="name"
-                                value="{{ old('name') ?? $category->name }}"
+                                value="{{ old('name') ?? $product->name }}"
                                 placeholder="Category Name"
                                 :message={{ $message }}
                             />
@@ -33,10 +33,10 @@
 
 
                             <x-admin.textarea-input
-                                label="Category Description"
+                                label="Product Description"
                                 id="description"
                                 name="description"
-                                content="{{ old('description') ?? $category->description }}"
+                                content="{{ old('description') ?? $product->description }}"
                                 rows="4"
                             />
                             @error('description')
@@ -51,7 +51,7 @@
                             <div class="flex flex-col p-6.5">
                                 <div>
                                     <label class="mb-3 block text-sm font-medium text-black dark:text-white">
-                                        Category image
+                                        Product image
                                     </label>
                                     <input type="file"
                                            id="image"
@@ -62,9 +62,9 @@
                                     @enderror
 
                                     <!-- Display the current image -->
-                                    @if ($category->image)
+                                    @if ($product->image)
                                         <div class="flex flex-row w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                                            <img src="{{ $category->image ? $category->image->image_path : '/storage/no-photos.png' }}" alt="Current Image" width="150">
+                                            <img src="{{ $product->image ? $product->image->image_path : '/storage/no-photos.png' }}" alt="Current Image" width="150">
                                         </div>
                                     @endif
                                 </div>

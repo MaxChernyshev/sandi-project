@@ -48,14 +48,11 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request): RedirectResponse
     {
-
         $tableName = (new Product())->getTable();
-//dd($tableName);
+
         $imageService = new UploadImageService();
 
         $validated = $request->all();
-//dd($validated['image']);
-
 
         $product = Product::create([
             'name' => $validated['name'],
@@ -69,9 +66,6 @@ class ProductController extends Controller
         // Attach the selected ingredients to the product
         $product->ingredients()->attach($validated['ingredients']);
 
-//dd($validated);
-//        $product = Product::create($validated);
-
         if (array_key_exists('image', $validated)) {
 
             $image = $imageService->uploadImage($validated['image'], $tableName);
@@ -81,11 +75,6 @@ class ProductController extends Controller
                 'image_path' => $image
             ]);
         }
-
-
-//        dd($request->all());
-//        Product::create($request->validated());
-//        dd($request->all());
 
         return redirect()
             ->route('admin.products.index')
