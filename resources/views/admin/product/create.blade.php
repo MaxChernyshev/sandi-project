@@ -10,7 +10,7 @@
 
                 <div class="my-4 p-4 rounded-lg bg-white border-1 dark:bg-boxdark">
                     <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-                        <form role="form" method="POST" action="{{ route('admin.products.store') }}" enctype="multipart/form-data">
+                        <form role="form" method="POST" action="{{ route('admin.products.category') }}" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
 

@@ -91,8 +91,8 @@ return [
     | Solution Providers
     |--------------------------------------------------------------------------
     |
-    | List of solution providers that should be loaded. You may specify additional 
-    | providers as fully qualified class names. 
+    | List of solution providers that should be loaded. You may specify additional
+    | providers as fully qualified class names.
     |
     */
 
@@ -210,7 +210,7 @@ return [
     | to all of your projects where Ignition is used and the path is not
     | specified.
     |
-    | However, if you want to store your settings on a project basis, or you
+    | However, if you want to category your settings on a project basis, or you
     | want to keep them in another directory, you can specify a path where
     | the settings file will be saved. The path should be an existing directory
     | with correct write access.

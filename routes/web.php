@@ -12,6 +12,7 @@ use App\Http\Controllers\Front\InstructionController as FrontInstruction;
 use App\Http\Controllers\Admin\IngridientController;
 use App\Http\Controllers\Admin\ProductController as AdminProduct;
 use App\Http\Controllers\Admin\ProductImportController;
+use App\Http\Controllers\Front\CategoryController as FrontCategory;
 
 use App\Http\Middleware\AdminPanelMiddleware;
 
@@ -46,7 +47,7 @@ Route::name('admin.')
                 Route::get('/', [AdminProduct::class, 'index'])->name('index');
 
                 Route::get('/create', [AdminProduct::class, 'create'])->name('create');
-                Route::post('/store', [AdminProduct::class, 'store'])->name('store');
+                Route::post('/category', [AdminProduct::class, 'store'])->name('category');
 
                 Route::get('/edit/{product:id}', [AdminProduct::class, 'edit'])->name('edit');
                 Route::put('/update/{product:id}', [AdminProduct::class, 'update'])->name('update');
@@ -63,7 +64,7 @@ Route::name('admin.')
                 Route::get('/', [CategoryController::class, 'index'])->name('index');
 
                 Route::get('/create', [CategoryController::class, 'create'])->name('create');
-                Route::post('/store', [CategoryController::class, 'store'])->name('store');
+                Route::post('/category', [CategoryController::class, 'store'])->name('category');
 
                 Route::get('/edit/{category:id}', [CategoryController::class, 'edit'])->name('edit');
                 Route::put('/update/{category:id}', [CategoryController::class, 'update'])->name('update');
@@ -77,7 +78,7 @@ Route::name('admin.')
                 Route::get('/', [AdminStatement::class, 'index'])->name('index');
 
                 Route::get('/create', [AdminStatement::class, 'create'])->name('create');
-                Route::post('/store', [AdminStatement::class, 'store'])->name('store');
+                Route::post('/category', [AdminStatement::class, 'store'])->name('category');
 
                 Route::get('/edit/{statement:id}', [AdminStatement::class, 'edit'])->name('edit');
                 Route::put('/update/{statement:id}', [AdminStatement::class, 'update'])->name('update');
@@ -91,7 +92,7 @@ Route::name('admin.')
                 Route::get('/', [AdminInstruction::class, 'index'])->name('index');
 
                 Route::get('/create', [AdminInstruction::class, 'create'])->name('create');
-                Route::post('/store', [AdminInstruction::class, 'store'])->name('store');
+                Route::post('/category', [AdminInstruction::class, 'store'])->name('category');
 
                 Route::get('/edit/{instruction:id}', [AdminInstruction::class, 'edit'])->name('edit');
                 Route::put('/update/{instruction:id}', [AdminInstruction::class, 'update'])->name('update');
@@ -105,7 +106,7 @@ Route::name('admin.')
                 Route::get('/', [IngridientController::class, 'index'])->name('index');
 
                 Route::get('/create', [IngridientController::class, 'create'])->name('create');
-                Route::post('/store', [IngridientController::class, 'store'])->name('store');
+                Route::post('/category', [IngridientController::class, 'store'])->name('category');
 
                 Route::get('/edit/{ingridient:id}', [IngridientController::class, 'edit'])->name('edit');
                 Route::put('/update/{ingridient:id}', [IngridientController::class, 'update'])->name('update');
@@ -134,6 +135,13 @@ Route::name('front.')
             ->group(function () {
                 Route::get('/', [FrontInstruction::class, 'index'])->name('index');
                 Route::get('/{instruction:id}', [FrontInstruction::class, 'show'])->name('show');
+            });
+
+        Route::prefix('category')
+            ->name('category.')
+            ->group(function () {
+                Route::get('/', [FrontCategory::class, 'index'])->name('index');
+                Route::get('/{category:id}', [FrontCategory::class, 'show'])->name('show');
             });
     });
 

@@ -236,10 +236,10 @@ return [
         | By default PhpSpreadsheet keeps all cell values in memory, however when
         | dealing with large files, this might result into memory issues. If you
         | want to mitigate that, you can configure a cell caching driver here.
-        | When using the illuminate driver, it will store each value in the
-        | cache store. This can slow down the process, because it needs to
-        | store each value. You can use the "batch" store if you want to
-        | only persist to the store when the memory limit is reached.
+        | When using the illuminate driver, it will category each value in the
+        | cache category. This can slow down the process, because it needs to
+        | category each value. You can use the "batch" category if you want to
+        | only persist to the category when the memory limit is reached.
         |
         | Drivers: memory|illuminate|batch
         |
@@ -252,7 +252,7 @@ return [
         |--------------------------------------------------------------------------
         |
         | When dealing with the "batch" caching driver, it will only
-        | persist to the store when the memory limit is reached.
+        | persist to the category when the memory limit is reached.
         | Here you can tweak the memory limit to your liking.
         |
         */
@@ -266,14 +266,14 @@ return [
         |--------------------------------------------------------------------------
         |
         | When using the "illuminate" caching driver, it will automatically use
-        | your default cache store. However if you prefer to have the cell
-        | cache on a separate store, you can configure the store name here.
-        | You can use any store defined in your cache config. When leaving
-        | at "null" it will use the default store.
+        | your default cache category. However if you prefer to have the cell
+        | cache on a separate category, you can configure the category name here.
+        | You can use any category defined in your cache config. When leaving
+        | at "null" it will use the default category.
         |
         */
         'illuminate'  => [
-            'store' => null,
+            'category' => null,
         ],
 
         /*
@@ -350,7 +350,7 @@ return [
         |
         | When dealing with a multi server setup with queues in which you
         | cannot rely on having a shared local temporary path, you might
-        | want to store the temporary file on a shared disk. During the
+        | want to category the temporary file on a shared disk. During the
         | queue executing, we'll retrieve the temporary file from that
         | location instead. When left to null, it will always use
         | the local path. This setting only has effect when using
