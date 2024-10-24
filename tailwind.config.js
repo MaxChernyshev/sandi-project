@@ -29,6 +29,11 @@ module.exports = {
             lora: ['Lora', 'sans-serif'],
         },
         screens: {
+            sm: '640px',
+            md: '768px',
+            lg: '1024px',
+            xl: '1280px',
+
             '2xsm': '375px',
             xsm: '425px',
             '3xl': '2000px',

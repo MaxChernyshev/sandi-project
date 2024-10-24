@@ -31,26 +31,25 @@
                 <h2 class="text-4xl text-center uppercase md:text-left md:text-5xl">
                     Our Creations
                 </h2>
-
-{{--                <button class="hidden btn md:block">See All</button>--}}
             </div>
 
             <!-- Items Container -->
-            <div class="item-container justify-center mx-auto my-8 grid grid-cols-3 gap-3 sm:grid-cols-1">
+            <div class="item-container justify-center mx-auto my-8 grid grid-cols-1 gap-3
+            xsm:grid-cols-1
+            sm:grid-cols-1
+            md:grid-cols-2
+            lg:grid-cols-3
+            xl:grid-cols-3
+            ">
                 <!-- Item 1 -->
                 @foreach($categories as $category)
                     <div class="group item my-4 p-2">
-                        <!-- Desktop Image -->
-                        {{--                        <img src="{{ Vite::asset('resources/images/front/borsch.png') }}" alt=""--}}
-                        {{--                             class="hidden w-60 duration-200 md:block group-hover:scale-110"/>--}}
                         @if(isset($category->image->image_path))
-{{--                            <div class="p-2">--}}
+                            <!-- Desktop Image -->
                             <img src="{{URL::asset($category->image->image_path)}}" alt="{!! $category->name !!}" class="hidden w-60 duration-200 md:block group-hover:scale-110"/>
                             <!-- Mobile Image -->
                             <img src="{{URL::asset($category->image->image_path)}}" alt="{!! $category->name !!}" class="w-full md:hidden"/>
-{{--                            </div>--}}
                         @endif
-
                         <!-- Item Gradient -->
                         <div class="item-gradient"></div>
                         <!-- Item Text -->
@@ -58,10 +57,6 @@
                     </div>
                 @endforeach
             </div>
-            <!-- Bottom Button Container -->
-{{--            <div class="flex justify-center mt-10 md:hidden">--}}
-{{--                <button class="btn w-full md:hidden">See All</button>--}}
-{{--            </div>--}}
         </div>
     </section>
 
