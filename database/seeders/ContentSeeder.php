@@ -13,6 +13,7 @@ class ContentSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            MenuSeeder::class,
             CategorySeeder::class,
             InstructionSeeder::class,
             IngredientSeeder::class,

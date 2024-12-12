@@ -26,7 +26,7 @@ class CategorySeeder extends Seeder
             'description' => fake()->sentence(5),
         ]);
         Category::create([
-            'name' => 'Borsch & Soups',
+            'name' => 'Borsch, Soups',
             'description' => fake()->sentence(5),
         ]);
         Category::create([
