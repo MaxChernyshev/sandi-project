@@ -29,15 +29,16 @@
             <img src="{{ Vite::asset('resources/images/front/sandy_logo.png') }}" alt="Sandy's Logo" class="h-20">
             </a>
             <!-- Menu -->
-            <div class="hidden h-10  md:flex md:space-x-8 text-2xl">
+            <div class="hidden h-10  md:flex md:space-x-8 text-xl">
                 <div class="group">
-                    <a href="#">Kitchen</a>
+                    <a href="{{ route('front.products.hot-menu') }}">Hot Menu</a>
                     <div class="mx-2 group-hover:border-b group-hover:border-blue-50">
                     </div>
                 </div>
                 <div class="group">
-                    <a href="{{ route('front.category.index') }}">Store</a>
-                    <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                    <a href="{{ route('front.products.frozen-menu') }}">Frozen Menu</a>
+                    <div class="mx-2 group-hover:border-b group-hover:border-blue-50">
+                    </div>
                 </div>
                 <div class="group">
                     <a href="#">Blog</a>

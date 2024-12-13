@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\IngridientController;
 use App\Http\Controllers\Admin\ProductController as AdminProduct;
 use App\Http\Controllers\Admin\ProductImportController;
 use App\Http\Controllers\Front\CategoryController as FrontCategory;
+use App\Http\Controllers\Front\ProductController;
 
 use App\Http\Middleware\AdminPanelMiddleware;
 
@@ -143,6 +144,14 @@ Route::name('front.')
                 Route::get('/', [FrontCategory::class, 'index'])->name('index');
                 Route::get('/{category:id}', [FrontCategory::class, 'show'])->name('show');
             });
+        Route::prefix('products')
+            ->name('products.')
+            ->group(function () {
+                Route::get('/hot-menu', [ProductController::class, 'hotMenu'])->name('hot-menu');
+                Route::get('/frozen-menu', [ProductController::class, 'frozenMenu'])->name('frozen-menu');
+                Route::get('/product/{product:name}', [ProductController::class, 'show'])->name('product');
+            });
+
     });
 
 // END FRONT
