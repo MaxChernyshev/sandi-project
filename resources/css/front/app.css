@@ -1,18 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
+@import 'quill.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-
-
-
-/*@layer base {*/
-/*    html, body {*/
-/*        font-family: Lora, system-ui sans-serif;*/
-/*    }*/
-/*}*/
 
 body {
     font-family: Lora, system-ui sans-serif;

@@ -39,7 +39,7 @@
                             {{-- TODO insert LiveWire for Image with temporary URL--}}
 
                             <div class="flex flex-row w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4">
-                                <img class="object-none h-16 w-16" src="{{ $category->image ?$category->image->image_path : '/storage/no-photos.png' }}">
+                                <img class="object-none h-16 w-16" src="{{ $category->image ?$category->image->image_path : '/storage/no-photos.png' }}" alt="{{ $category->name }}">
                             </div>
 
                             <div class="flex flex-row justify-end">

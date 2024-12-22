@@ -3,10 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Str;
 
 class CategorySeeder extends Seeder
 {
@@ -15,7 +13,7 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-//        Schema::disableForeignKeyConstraints('users_role_id_foreign');
+        Schema::disableForeignKeyConstraints('products_category_id_foreign');
 
         Category::truncate();
 
@@ -28,14 +26,23 @@ class CategorySeeder extends Seeder
             'description' => fake()->sentence(5),
         ]);
         Category::create([
-            'name' => 'Borsch',
+            'name' => 'Borsch, Soups',
             'description' => fake()->sentence(5),
         ]);
         Category::create([
-            'name' => 'Sauce',
+            'name' => 'Sauces',
+            'description' => fake()->sentence(5),
+        ]);
+        Category::create([
+            'name' => 'Desserts',
+            'description' => fake()->sentence(5),
+        ]);
+        Category::create([
+            'name' => 'Sausages',
             'description' => fake()->sentence(5),
         ]);
 
-//        Schema::enableForeignKeyConstraints('users_role_id_foreign');
+
+        Schema::enableForeignKeyConstraints('products_category_id_foreign');
     }
 }

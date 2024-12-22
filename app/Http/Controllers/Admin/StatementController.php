@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StatementRequest;
 use App\Models\Statement;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class StatementController extends Controller
@@ -30,7 +31,7 @@ class StatementController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StatementRequest $request, Statement $statement): RedirectResponse
+    public function store(StatementRequest $request): RedirectResponse
     {
         $validated = $request->all();
 
@@ -39,14 +40,6 @@ class StatementController extends Controller
         return redirect()
             ->route('admin.statements.index')
             ->with('success', 'Statement added');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**
@@ -68,7 +61,6 @@ class StatementController extends Controller
 
         return redirect()->route('admin.statements.index')
             ->with('message', 'Statement updated successfully.');
-
     }
 
     /**

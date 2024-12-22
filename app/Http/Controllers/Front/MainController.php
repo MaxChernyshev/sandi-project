@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -12,8 +13,9 @@ class MainController extends Controller
      */
     public function index()
     {
-//        dd(1221);
-        return view('front.index');
+        $categories = Category::all();
+
+        return view('front.index', compact('categories'));
     }
 
     /**

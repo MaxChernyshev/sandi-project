@@ -8,15 +8,18 @@
                     <li class="mb-2"></li>
                     <li class="mb-2">Menu Kitchen</li>
                     <li class="mb-2">Menu Store</li>
-                    <li class="mb-2">Recipes</li>
+                    <a href="{{ route('front.instructions.index') }}">
+                        <li class="mb-2">How To Cook</li>
+                    </a>
                 </ul>
             </div>
             <div class="w-full sm:w-1/2 md:w-1/4 lg:1/4 xl:1/4 mb-4 sm:mb-0">
                 <ul>
-                    <li class="mb-2">Link 1</li>
-                    <li class="mb-2">Link 2</li>
-                    <li class="mb-2">Link 3</li>
-                    <li class="mb-2">Link 4</li>
+                    @foreach($statements as $statement)
+                        <a href="{{ route('front.statement.show', ['statement' => $statement->id] ) }}">
+                            <li class="mb-2">{{ $statement->title }}</li>
+                        </a>
+                    @endforeach
                 </ul>
             </div>
             <div class="w-full sm:w-1/2 md:w-1/4 lg:1/4 xl:1/4 mb-4 sm:mb-0">

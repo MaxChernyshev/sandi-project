@@ -16,6 +16,7 @@ module.exports = {
         './resources/views/front/*.{html,php}',
         './resources/views/front/**/*.{html,php}',
         './resources/css/front/*.css',
+        './resources/css/front/quill.css',
         './resources/js/*.js',
         './resources/js/front/*.js',
 
@@ -28,6 +29,11 @@ module.exports = {
             lora: ['Lora', 'sans-serif'],
         },
         screens: {
+            sm: '640px',
+            md: '768px',
+            lg: '1024px',
+            xl: '1280px',
+
             '2xsm': '375px',
             xsm: '425px',
             '3xl': '2000px',

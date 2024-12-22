@@ -19,34 +19,6 @@ class UploadImageService
         return $name;
     }
 
-//    public function updateImage($oldImage, $folder, $image = NULL)
-//    {
-//        dump($file);
-//        dump($folder);
-//        dump($image);
-////        dd();
-//        if ($image) {
-//            $image = '/public' . substr($image, strlen('/storage'));
-//            Storage::delete($image);
-//        }
-//
-//        return '/storage/' . $file->store("/$folder", 'public');
-//    }
-
-//    public function updateImage($file, $folder, $image = NULL)
-//    {
-//        dump($file);
-//        dump($folder);
-//        dump($image);
-////        dd();
-//        if ($image) {
-//            $image = '/public' . substr($image, strlen('/storage'));
-//            Storage::delete($image);
-//        }
-//
-//        return '/storage/' . $file->store("/$folder", 'public');
-//    }
-
     public function deleteImage($image)
     {
         if (is_array($image) or $image instanceof Collection) {
