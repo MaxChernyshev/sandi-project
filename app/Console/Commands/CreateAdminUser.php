@@ -33,28 +33,37 @@ class CreateAdminUser extends Command
 
         $usersSeed->run();
 
+        $email = $this->ask('Enter your email');
+
+        $existingEmail = User::where('email', $email)->first();
+
+        $name = $this->ask('Enter your name');
+
+        $password = $this->secret('Enter your password');
+
+        $confirmedPassword = $this->secret('Confirm your password');
+
         $adminRoleId = Role::where('role', 'admin')->first();
 
-//        dd($adminRoleId->id);
+        if ($password === $confirmedPassword) {
+            $user = User::updateOrCreate(
+                [
+                    'email' => $email,
+                ],
+                [
+                    'name' => $name,
+                    'role_id' => $adminRoleId->id,
+                    'email_verified_at' => now(),
+                    'password' => Hash::make($password),
+                    'created_at' => now(),
+                ],
+            );
+            $this->info(sprintf("Admin created with\n\temail: %s \n\tname: %s \n\tpassword: %s", $user->email, $user->name, $password));
 
-        $password = 'password';
-
-        $user = User::updateOrCreate(
-            [
-                'email' => 'admin@mail.com',
-            ],
-            [
-                'name' => 'Admin',
-                'role_id' => $adminRoleId->id,
-                'email_verified_at' => now(),
-                'password' => Hash::make($password),
-                'created_at' => now(),
-                'created_at' => now(),
-
-            ],
-        );
-        $this->info(sprintf("Admin created with\n\temail: %s \n\tpassword: %s", $user->email, $password));
-
-        return Command::SUCCESS;
+            return Command::SUCCESS;
+        } else {
+            $this->info(sprintf('You did not confirm your password or email, try again'));
+            return Command::FAILURE;
+        }
     }
 }
