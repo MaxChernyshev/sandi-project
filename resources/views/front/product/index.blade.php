@@ -2,16 +2,18 @@
 
 @section('content')
     <!-- Feature Section -->
-    <section id="statement">
+    <section id="product">
         <!-- Feature Container -->
 
-        <div class="relative container flex flex-row max-w-6xl mx-auto mt-6 px-6 py-2 text-gray-900 md:flex-row md:px-0 text-4xl ql-editor">
-            <h1 class="text-capitalize text-center">{{ $menu->name }} Menu</h1>
+        <div class="relative container flex flex-row max-w-6xl mx-auto mt-6 px-6 py-2 text-gray-900 md:flex-row md:px-0 text-4xl">
+            <h1 class="text-capitalize mx-auto">{{ $menu->name }} Menu</h1>
         </div>
 
         @if(isset($products))
+            <div class="grid grid-cols-4 gap-4">
             @foreach($products as $product)
-                <div class="relative container flex flex-row max-w-6xl mt-2 mx-auto my-2 px-2 py-0 text-gray-900 md:flex-row md:px-0 text-4xl ql-editor">
+
+                <div class="max-w-6xl mt-2 mx-auto my-2 px-2 py-0 text-gray-900  md:px-0 text-4xl">
                     <a href="{{ route('front.products.product', ['product' => $product]) }}">
 
                         <div class="flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg my-2 w-96">
@@ -36,7 +38,9 @@
                         {{--                        @endif--}}
                     </a>
                 </div>
+
             @endforeach
+            </div>
         @endif
     </section>
 
