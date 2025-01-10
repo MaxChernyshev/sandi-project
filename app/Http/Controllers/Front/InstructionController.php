@@ -24,7 +24,6 @@ class InstructionController extends Controller
      */
     public function show(Instruction $instruction): View
     {
-        dd($instruction);
         return view('front.instructions.show', compact('instruction'));
     }
 
