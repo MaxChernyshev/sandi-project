@@ -17,7 +17,7 @@
                 </h2>
 
                 <p class="max-w-md text-center md:text-left">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores cupiditate, doloremque hic, ipsa molestiae mollitia non, quae quasi similique unde velit vero. Accusantium aliquam delectus dignissimos dolorum, iusto magni, nisi, nobis quasi quis quo rerum sed vero voluptas? Ad corporis cupiditate deleniti deserunt dignissimos est molestiae nihil sint suscipit.
+                    Located on Vancouver Island, Nanaimo BC, <strong class="text-2xl underline"> Sandy's Ukrainian Kitchen </strong> brings the rich flavors of traditional Ukrainian cuisine to life. With hearty dishes crafted from family recipes and infused with Ukrainian soul, it’s a cozy spot to experience the warmth and authenticity of Ukrainian hospitality. Perfect for anyone craving a taste of home or exploring Ukrainian cultural delights!
                 </p>
             </div>
         </div>
