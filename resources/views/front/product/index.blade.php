@@ -10,13 +10,36 @@
         </div>
 
         @if(isset($products))
-            <div class="grid grid-cols-4 gap-4">
+
+
+            <div class="grid
+            xl:grid-cols-4 xl:gap-4
+            lg:grid-cols-3 lg:gap-2
+            md:grid-cols-3 md:gap-2
+            sm:grid-cols-1 sm:gap-1
+            xsm:grid-cols-1 xsm:gap-1
+            ">
             @foreach($products as $product)
 
-                <div class="max-w-6xl mt-2 mx-auto my-2 px-2 py-0 text-gray-900  md:px-0 text-4xl">
+                <div class="
+                2xsm:max-w-sm
+                xsm:max-w-sm
+                sm:max-w-sm
+                md:max-w-lg
+                lg:max-w-lg
+                xl:max-w-xl
+                mt-2 mx-auto my-2 px-2 py-0 text-gray-900 md:px-0 text-4xl">
                     <a href="{{ route('front.products.product', ['product' => $product]) }}">
 
-                        <div class="flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg my-2 w-96">
+                        <div class="flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg my-2
+
+                        2xsm:w-80
+                        xsm:w-80
+                        sm:w-80
+                        md:w-65
+                        lg:w-80
+                        xl:w-80
+                        ">
                             <div class="p-6 text-center">
                                 <h4 class="mb-1 text-xl font-semibold text-slate-800">{{ $product->name }}</h4>
                                 <p class="text-base text-slate-600 mt-4 font-light ">{{ $product->description }}</p>
@@ -32,10 +55,6 @@
                                 <p class="text-base text-slate-600 mt-4 font-light ">$ {{ $product->price }}</p>
                             </div>
                         </div>
-
-                        {{--                        @if(isset($category->image->image_path))--}}
-                        {{--                            <img src="{{URL::asset($category->image->image_path)}}" alt="{!! $category->name !!}" class="h-30">--}}
-                        {{--                        @endif--}}
                     </a>
                 </div>
 

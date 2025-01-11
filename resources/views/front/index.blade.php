@@ -25,7 +25,7 @@
     </section>
 
     <!-- Story Section -->
-    <section id="story" class="bg-blue-100">
+    <section id="story">
         <div class="mt-2">
             <div class="relative container flex flex-col max-w-6xl mx-auto px-6 text-gray-900 md:flex-row md:px-0">
                 <div class="flex justify-center mb-20 md:justify-between">
@@ -56,7 +56,7 @@
 
 
     <!-- Creations Section -->
-    <section id="creations" class="bg-amber-100">
+    <section id="creations">
         <!-- Creations Container -->
         <div class="container max-w-6xl mx-auto px-6 text-gray-900 md:px-0">
             <!-- Creations Header -->
