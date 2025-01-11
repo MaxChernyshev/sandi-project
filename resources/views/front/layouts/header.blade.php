@@ -68,10 +68,10 @@
         <!-- Mobile Menu -->
         <div id="menu"
              class="absolute top-0 bottom-0 left-0 hidden flex-col self-end w-full min-h-screen py-1 pt-40 pl-12 space-y-3 text-lg text-white uppercase bg-black">
-            <a href="#" class="hover:text-pink-500">Kitchen</a>
-            <a href="#" class="hover:text-pink-500">Store</a>
+            <a href="{{ route('front.products.hot-menu') }}" class="hover:text-pink-500">Hot Menu</a>
+            <a href="{{ route('front.products.frozen-menu') }}" class="hover:text-pink-500">Frozen Menu</a>
             <a href="#" class="hover:text-pink-500">Blog</a>
-            <a href="#" class="hover:text-pink-500">About</a>
+            <a href="#" class="hover:text-pink-500">Our History</a>
             <a href="#" class="hover:text-pink-500">Contact</a>
         </div>
     </div>

@@ -2,8 +2,9 @@
     <div class="container max-w-full min-h-12 hidden md:flex vyshyvanka-string"></div>
 
     <div class="container max-w-4xl mx-auto px-6 py-12">
-        <div class="flex">
-            <div class="w-full sm:w-1/2 md:w-1/4 lg:1/4 xl:1/4 mb-4 sm:mb-0">
+        <div class="flex 2xsm:flex-col xsm:flex-col sm md:flex-row lg:flex-row xl:flex-row">
+
+            <div class="2xsm:w-full xsm:w-full sm:w-full md:w-1/2 lg:w-1/4 xl:w-1/4 mb-4 xsm:mb-0 sm:mb-0 md:mb-1">
                 <ul>
                     <li class="mb-2"></li>
                     <li class="mb-2">Menu Kitchen</li>
@@ -13,7 +14,10 @@
                     </a>
                 </ul>
             </div>
-            <div class="w-full sm:w-1/2 md:w-1/4 lg:1/4 xl:1/4 mb-4 sm:mb-0">
+
+
+            <div class="2xsm:w-full xsm:w-full sm:w-full md:w-1/2 lg:w-1/4 xl:w-1/4 mb-4 xsm:mb-0 sm:mb-0 md:mb-1">
+
                 <ul>
                     @foreach($statements as $statement)
                         <a href="{{ route('front.statement.show', ['statement' => $statement->id] ) }}">
@@ -22,7 +26,10 @@
                     @endforeach
                 </ul>
             </div>
-            <div class="w-full sm:w-1/2 md:w-1/4 lg:1/4 xl:1/4 mb-4 sm:mb-0">
+
+
+            <div class="2xsm:w-full xsm:w-full sm:w-full md:w-1/2 lg:w-1/4 xl:w-1/4 mb-4 xsm:mb-0 sm:mb-0 md:mb-1">
+
                 <ul>
                     <li class="mb-2">Link 1</li>
                     <li class="mb-2">Link 2</li>
@@ -30,7 +37,10 @@
                     <li class="mb-2">Link 4</li>
                 </ul>
             </div>
-            <div class="w-full sm:w-1/2 md:w-1/4 lg:1/4 xl:1/4 mb-4 sm:mb-0">
+
+
+            <div class="2xsm:w-full xsm:w-full sm:w-full md:w-1/2 lg:w-1/4 xl:w-1/4 mb-4 xsm:mb-0 sm:mb-0 md:mb-1">
+
                 <ul>
                     <li class="mb-2">
                         <a href="#">
@@ -54,6 +64,8 @@
                     </li>
                 </ul>
             </div>
+
+
         </div>
     </div>
 
