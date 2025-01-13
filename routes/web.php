@@ -25,12 +25,15 @@ Route::middleware('auth')->group(function () {
 Route::name('front.')
     ->group(function () {
         Route::get('/', [FrontMain::class, 'index'])->name('index');
+        Route::get('/contacts', [FrontMain::class, 'contact'])->name('contacts');
 
         Route::prefix('statement')
             ->name('statement.')
             ->group(function () {
                 Route::get('/{statement:id}', [FrontStatement::class, 'show'])->name('show');
             });
+
+
 
         Route::prefix('instructions')
             ->name('instructions.')
