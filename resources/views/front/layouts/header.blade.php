@@ -49,7 +49,7 @@
                     <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
                 </div>
                 <div class="group">
-                    <a href="#">Contact</a>
+                    <a href="{{ route('front.contacts') }}">Contact</a>
                     <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
             <a href="{{ route('front.products.frozen-menu') }}" class="hover:text-pink-500">Frozen Menu</a>
             <a href="#" class="hover:text-pink-500">Blog</a>
             <a href="#" class="hover:text-pink-500">Our History</a>
-            <a href="#" class="hover:text-pink-500">Contact</a>
+            <a href="{{ route('front.contacts') }}" class="hover:text-pink-500">Contact</a>
         </div>
     </div>
 </section>
