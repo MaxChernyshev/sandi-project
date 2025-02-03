@@ -29,7 +29,7 @@
                 lg:max-w-lg
                 xl:max-w-xl
                 mt-2 mx-auto my-2 px-2 py-0 text-gray-900 md:px-0 text-4xl">
-                    <a href="{{ route('front.products.product', ['product' => $product]) }}">
+                    <a href="{{ route('front.products.product', ['product' => $product->slug]) }}">
 
                         <div class="flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg my-2
 

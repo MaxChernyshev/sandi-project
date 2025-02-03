@@ -20,7 +20,7 @@
 
                 <ul>
                     @foreach($statements as $statement)
-                        <a href="{{ route('front.statement.show', ['statement' => $statement->id] ) }}">
+                        <a href="{{ route('front.statement.show', ['statement' => $statement->slug] ) }}">
                             <li class="mb-2">{{ $statement->title }}</li>
                         </a>
                     @endforeach
@@ -30,12 +30,12 @@
 
             <div class="2xsm:w-full xsm:w-full sm:w-full md:w-1/2 lg:w-1/4 xl:w-1/4 mb-4 xsm:mb-0 sm:mb-0 md:mb-1">
 
-                <ul>
-                    <li class="mb-2">Link 1</li>
-                    <li class="mb-2">Link 2</li>
-                    <li class="mb-2">Link 3</li>
-                    <li class="mb-2">Link 4</li>
-                </ul>
+{{--                <ul>--}}
+{{--                    <li class="mb-2">Link 1</li>--}}
+{{--                    <li class="mb-2">Link 2</li>--}}
+{{--                    <li class="mb-2">Link 3</li>--}}
+{{--                    <li class="mb-2">Link 4</li>--}}
+{{--                </ul>--}}
             </div>
 
 

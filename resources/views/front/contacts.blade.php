@@ -4,7 +4,15 @@
 
     <!-- Feature Section -->
     <section id="contacts">
-        <div>
+
+{{--        2xsm: '375px',--}}
+{{--        xsm:  '425px',--}}
+{{--        sm:   '640px',--}}
+{{--        md:   '768px',--}}
+{{--        lg:   '1024px',--}}
+{{--        xl:   '1280px',--}}
+{{--        3xl:  '2000px',--}}
+        <div class="w-full">
             <div class="relative container flex flex-row max-w-6xl mx-auto mt-6 px-6 py-2 text-gray-900 md:flex-row md:px-0 text-4xl">
                 <h1 class="text-capitalize mx-auto">Contacts</h1>
             </div>

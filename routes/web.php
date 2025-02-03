@@ -30,7 +30,7 @@ Route::name('front.')
         Route::prefix('statement')
             ->name('statement.')
             ->group(function () {
-                Route::get('/{statement:id}', [FrontStatement::class, 'show'])->name('show');
+                Route::get('/{statement:slug}', [FrontStatement::class, 'show'])->name('show');
             });
 
 
@@ -53,7 +53,7 @@ Route::name('front.')
             ->group(function () {
                 Route::get('/hot-menu', [ProductController::class, 'hotMenu'])->name('hot-menu');
                 Route::get('/frozen-menu', [ProductController::class, 'frozenMenu'])->name('frozen-menu');
-                Route::get('/product/{product:name}', [ProductController::class, 'show'])->name('product');
+                Route::get('/product/{product:slug}', [ProductController::class, 'show'])->name('product');
             });
 
     });
