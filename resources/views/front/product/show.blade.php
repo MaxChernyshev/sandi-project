@@ -16,8 +16,17 @@
 
         <div class="relative container max-w-6xl mx-auto mb-8 px-6 text-gray-900 md:flex-row md:px-0 ql-editor">
             <p>{!! $product->description !!}</p>
-
         </div>
+
+        <div class="relative container max-w-6xl mx-auto mb-8 px-6 text-gray-900 md:flex-row md:px-0 ql-editor">
+            <p>$ {!! $product->price !!}</p>
+        </div>
+
+        @if(isset($product->instruction))
+            <div class="relative container max-w-6xl mx-auto mb-8 px-6 text-gray-900 md:flex-row md:px-0 ql-editor">
+                <p>{{ $product->instruction->content }}</p>
+            </div>
+        @endif
     </section>
 
 @endsection
