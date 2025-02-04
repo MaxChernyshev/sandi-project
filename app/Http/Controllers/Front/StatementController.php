@@ -13,7 +13,11 @@ class StatementController extends Controller
      */
     public function show(Statement $statement): View
     {
-//        dd($statement);
+        return view('front.statement', compact('statement'));
+    }
+
+    public function showOurHistory(Statement $statement): View
+    {
         return view('front.statement', compact('statement'));
     }
 
