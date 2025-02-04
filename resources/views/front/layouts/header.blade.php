@@ -50,7 +50,7 @@
                     <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
                 </div>
                 <div class="group">
-                    <a href="#">Our History</a>
+                    <a href="{{ route('front.statement.showOurHistory') }}">Our History</a>
                     <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
                 </div>
                 <div class="group">

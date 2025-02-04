@@ -31,6 +31,7 @@ Route::name('front.')
             ->name('statement.')
             ->group(function () {
                 Route::get('/{statement:slug}', [FrontStatement::class, 'show'])->name('show');
+                Route::get('/our-history', [FrontStatement::class, 'showOurHistory'])->name('showOurHistory');
             });
 
 
